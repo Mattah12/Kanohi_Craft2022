@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "kanohicraft:protodermis_nugget"
+  },
+  "result": "kanohicraft:protodermis_ingot",
+  "experience": 0.0,
+  "cookingtime": 100
+}

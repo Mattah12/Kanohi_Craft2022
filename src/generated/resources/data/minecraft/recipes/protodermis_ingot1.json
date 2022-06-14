@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "tag": "kanohicraft:protodermis_ore"
+  },
+  "result": "kanohicraft:protodermis_ingot",
+  "experience": 1.0,
+  "cookingtime": 100
+}
