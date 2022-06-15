@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "kanohicraft:protogen",
     "kanohicraft:protodermis_ore_overworld",
     "kanohicraft:protodermis_ore_nether",
     "kanohicraft:protodermis_ore_end",

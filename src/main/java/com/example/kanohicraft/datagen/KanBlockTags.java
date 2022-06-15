@@ -17,11 +17,13 @@ public class KanBlockTags extends BlockTagsProvider {
     @Override
     protected void addTags() {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .add(Registration.PROTOGEN.get())
                 .add(Registration.PROTODERMIS_ORE_OVERWORLD.get())
                 .add(Registration.PROTODERMIS_ORE_NETHER.get())
                 .add(Registration.PROTODERMIS_ORE_END.get())
                 .add(Registration.PROTODERMIS_ORE_DEEPSLATE.get());
-        tag(BlockTags.NEEDS_DIAMOND_TOOL)
+        tag(BlockTags.NEEDS_IRON_TOOL)
+                .add(Registration.PROTOGEN.get())
                 .add(Registration.PROTODERMIS_ORE_OVERWORLD.get())
                 .add(Registration.PROTODERMIS_ORE_NETHER.get())
                 .add(Registration.PROTODERMIS_ORE_END.get())

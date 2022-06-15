@@ -5,6 +5,8 @@ import com.example.kanohicraft.setup.Registration;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 
+import static com.example.kanohicraft.blocks.ProtoGenBlock.MESSAGE_PROTOGEN;
+import static com.example.kanohicraft.blocks.ProtoGenBlock.SCREEN_TUTORIAL_PROTOGEN;
 import static com.example.kanohicraft.setup.ModSetup.TAB_NAME;
 
 public class KanLanguageProvider extends LanguageProvider {
@@ -16,10 +18,17 @@ public class KanLanguageProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         add("itemGroup." + TAB_NAME, "KanohiCraft");
+
+        add(MESSAGE_PROTOGEN, "Protodermis Generator generating at s% per tick");
+        add(SCREEN_TUTORIAL_PROTOGEN, "Protodermis Generator");
+
+        add(Registration.PROTOGEN.get(), "Protodermis Generator");
+
         add(Registration.PROTODERMIS_ORE_OVERWORLD.get(), "Protodermis Ore");
         add(Registration.PROTODERMIS_ORE_NETHER.get(), "Protodermis Ore");
         add(Registration.PROTODERMIS_ORE_END.get(), "Protodermis Ore");
         add(Registration.PROTODERMIS_ORE_DEEPSLATE.get(), "Protodermis Ore");
+
         add(Registration.PROTODERMIS_NUGGET.get(), "Protodermis Nugget");
         add(Registration.PROTODERMIS_INGOT.get(), "Protodermis Ingot");
     }

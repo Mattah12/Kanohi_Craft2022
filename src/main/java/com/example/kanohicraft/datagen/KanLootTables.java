@@ -11,6 +11,7 @@ public class KanLootTables extends BaseLootTableProvider {
 
     @Override
     protected void addTables() {
+        lootTables.put(Registration.PROTOGEN.get(), createStandardTable("protogen", Registration.PROTOGEN.get(), Registration.PROTOGEN_BE.get()));
         lootTables.put(Registration.PROTODERMIS_ORE_OVERWORLD.get(), createSilkTouchTable("protodermis_ore_overworld", Registration.PROTODERMIS_ORE_OVERWORLD.get(), Registration.PROTODERMIS_NUGGET.get(), 1, 3));
         lootTables.put(Registration.PROTODERMIS_ORE_NETHER.get(), createSilkTouchTable("protodermis_ore_nether", Registration.PROTODERMIS_ORE_NETHER.get(), Registration.PROTODERMIS_NUGGET.get(), 1, 3));
         lootTables.put(Registration.PROTODERMIS_ORE_END.get(), createSilkTouchTable("protodermis_ore_end", Registration.PROTODERMIS_ORE_END.get(), Registration.PROTODERMIS_NUGGET.get(), 1, 3));
