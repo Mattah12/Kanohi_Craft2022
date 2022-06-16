@@ -77,7 +77,7 @@ public class ProtoGenBE extends BlockEntity {
         sendOutPower();
     }
 
-    private void sendOutPower() {
+    /*private void sendOutPower() {
         AtomicInteger capacity = new AtomicInteger(energyStorage.getEnergyStored());
         if (capacity.get() > 0) {
             for (Direction direction : Direction.values()) {
@@ -101,7 +101,33 @@ public class ProtoGenBE extends BlockEntity {
                 }
             }
         }
-    }
+    }*/
+
+    private void sendOutPower() {
+        AtomicInteger capacity = new AtomicInteger(energyStorage.getEnergyStored());
+        if (capacity.get() > 0) {
+            BlockEntity be = level.getBlockEntity(worldPosition.relative(Direction.EAST));
+                if (be != null) {
+                    boolean doContinue = be.getCapability(CapabilityEnergy.ENERGY, Direction.EAST.getOpposite()).map(handler -> {
+                                if (handler.canReceive()) {
+                                    int received = handler.receiveEnergy(Math.min(capacity.get(), PROTOGEN_SEND), false);
+                                    capacity.addAndGet(-received);
+                                    energyStorage.consumeEnergy(received);
+                                    setChanged();
+                                    return capacity.get() > 0;
+                                } else {
+                                    return true;
+                                }
+                            }
+                    ).orElse(true);
+                    if (!doContinue) {
+                        return;
+                    }
+                }
+            }
+        }
+
+
 
     @Override
     public void load(CompoundTag tag) {

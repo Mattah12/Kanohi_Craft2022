@@ -29,14 +29,21 @@ public class KanBlockStates extends BlockStateProvider {
     }
 
     private void registerProtoGen() {
+        //New line testing
+        //BlockModelBuilder protogenmodel = models().getBuilder("block/protogen/main");
+        //protogenmodel.parent(models().getExistingFile(mcLoc("cube")));
+
         Block block = Registration.PROTOGEN.get();
+        ResourceLocation down = modLoc("block/protogen_back");
+        ResourceLocation top = modLoc("block/protogen_top");
+        ResourceLocation off = modLoc("block/protogen_off");
         ResourceLocation back = modLoc("block/protogen_back");
         ResourceLocation east = modLoc("block/protogen_east");
         ResourceLocation west = modLoc("block/protogen_west");
-        ResourceLocation top = modLoc("block/protogen_top");
-        ResourceLocation off = modLoc("block/protogen_off");
-        ResourceLocation powered = modLoc("block/protogen_powered");
-        simpleBlock(block, models().cube(block.getRegistryName().getPath(), back, east, west, top, off, powered));
+        simpleBlock(block, models().cube(block.getRegistryName().getPath(), down, top, off, back, east, west));
+
+        //New line testing
+        //createProtoGenModel(Registration.PROTOGEN.get(), protogenmodel);
     }
 
 /*    private void registerProtoGen() {

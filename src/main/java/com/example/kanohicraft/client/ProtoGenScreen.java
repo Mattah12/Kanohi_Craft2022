@@ -27,7 +27,7 @@ public class ProtoGenScreen extends AbstractContainerScreen<ProtoGenContainer> {
 
     @Override
     protected void renderLabels(PoseStack matrixStack, int mouseX, int mouseY) {
-        drawString(matrixStack, Minecraft.getInstance().font, "Energy: " + menu.getEnergy(), 10, 10, 0xffffff);
+        drawString(matrixStack, Minecraft.getInstance().font, "Energy: " + menu.getEnergy(), 10, 55, 0xffffff);
     }
 
     @Override
