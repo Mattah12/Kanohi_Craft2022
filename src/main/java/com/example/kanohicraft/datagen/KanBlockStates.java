@@ -39,32 +39,32 @@ public class KanBlockStates extends BlockStateProvider {
         simpleBlock(block, models().cube(block.getRegistryName().getPath(), back, east, west, top, off, powered));
     }
 
-//    private void registerProtoGen() {
-//        BlockModelBuilder frame = models().getBuilder("block/protogen/main");
-//        frame.parent(models().getExistingFile(mcLoc("cube")));
+/*    private void registerProtoGen() {
+        BlockModelBuilder frame = models().getBuilder("block/protogen/main");
+        frame.parent(models().getExistingFile(mcLoc("cube")));
 
-//        floatingCube(frame, 0f, 0f, 0f, 1f, 16f, 1f);
-//        floatingCube(frame, 15f, 0f, 0f, 16f, 16f, 1f);
-//        floatingCube(frame, 0f, 0f, 15f, 1f, 16f, 16f);
-//        floatingCube(frame, 15f, 0f, 15f, 16f, 16f, 16f);
+        floatingCube(frame, 0f, 0f, 0f, 1f, 16f, 1f);
+        floatingCube(frame, 15f, 0f, 0f, 16f, 16f, 1f);
+        floatingCube(frame, 0f, 0f, 15f, 1f, 16f, 16f);
+        floatingCube(frame, 15f, 0f, 15f, 16f, 16f, 16f);
 
-//        floatingCube(frame, 1f, 0f, 0f, 15f, 1f, 1f);
-//        floatingCube(frame, 1f, 15f, 0f, 15f, 16f, 1f);
-//        floatingCube(frame, 1f, 0f, 15f, 15f, 1f, 16f);
-//        floatingCube(frame, 1f, 15f, 15f, 15f, 16f, 16f);
+        floatingCube(frame, 1f, 0f, 0f, 15f, 1f, 1f);
+        floatingCube(frame, 1f, 15f, 0f, 15f, 16f, 1f);
+        floatingCube(frame, 1f, 0f, 15f, 15f, 1f, 16f);
+        floatingCube(frame, 1f, 15f, 15f, 15f, 16f, 16f);
 
-//        floatingCube(frame, 0f, 0f, 1f, 1f, 1f, 15f);
-//        floatingCube(frame, 15f, 0f, 1f, 16f, 1f, 15f);
-//        floatingCube(frame, 0f, 15f, 1f, 1f, 16f, 15f);
-//        floatingCube(frame, 15f, 15f, 1f, 16f, 16f, 15f);
+        floatingCube(frame, 0f, 0f, 1f, 1f, 1f, 15f);
+        floatingCube(frame, 15f, 0f, 1f, 16f, 1f, 15f);
+       floatingCube(frame, 0f, 15f, 1f, 1f, 16f, 15f);
+        floatingCube(frame, 15f, 15f, 1f, 16f, 16f, 15f);
 
-//        floatingCube(frame, 1f, 1f, 1f, 15f, 15f, 15f);
+        floatingCube(frame, 1f, 1f, 1f, 15f, 15f, 15f);
 
-//        frame.texture("window", modLoc("block/powergen_window"));
-//        frame.texture("particle", modLoc("block/powergen_off"));
+        frame.texture("window", modLoc("block/powergen_window"));
+        frame.texture("particle", modLoc("block/powergen_off"));
 
-//        createPowergenModel(Registration.POWERGEN.get(), frame);
-//    }
+       createPowergenModel(Registration.POWERGEN.get(), frame);
+    }*/
 
 /*
     private void floatingCube(BlockModelBuilder builder, float fx, float fy, float fz, float tx, float ty, float tz) {
@@ -75,7 +75,7 @@ public class KanBlockStates extends BlockStateProvider {
                 .end();
     }*/
 
-    /*private void createProtoGenModel(Block block, BlockModelBuilder frame) {
+    private void createProtoGenModel(Block block, BlockModelBuilder frame) {
         BlockModelBuilder singleOff = models().getBuilder("block/protogen/singleoff")
                 .element().from(3, 3, 3).to(13, 13, 13).face(Direction.DOWN).texture("#single").end().end()
                 .texture("single", modLoc("block/protogen_off"));
@@ -97,6 +97,6 @@ public class KanBlockStates extends BlockStateProvider {
             bld.part().modelFile(models[i]).rotationY(90).rotationX(90).addModel().condition(BlockStateProperties.POWERED, powered);
             bld.part().modelFile(models[i]).rotationY(270).rotationX(90).addModel().condition(BlockStateProperties.POWERED, powered);
         }
-    }*/
+    }
 }
 

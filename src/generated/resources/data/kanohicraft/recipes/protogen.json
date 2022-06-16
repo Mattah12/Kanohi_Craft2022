@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "kanohicraft",
+  "pattern": [
+    "xxx",
+    "xyx",
+    "xzx"
+  ],
+  "key": {
+    "x": {
+      "item": "kanohicraft:protodermis_ingot"
+    },
+    "y": {
+      "item": "minecraft:furnace"
+    },
+    "z": {
+      "tag": "forge:dusts/redstone"
+    }
+  },
+  "result": {
+    "item": "kanohicraft:protogen"
+  }
+}
