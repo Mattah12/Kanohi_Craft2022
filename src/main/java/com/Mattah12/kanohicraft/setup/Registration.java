@@ -38,16 +38,16 @@ public class Registration {
     }
 
     // Some common properties for our blocks and items
-    public static final BlockBehaviour.Properties ORE_PROPERTIES = BlockBehaviour.Properties.of(Material.STONE).strength(2f);
+    public static final BlockBehaviour.Properties BLOCK_PROPERTIES = BlockBehaviour.Properties.of(Material.STONE).strength(2f).requiresCorrectToolForDrops();
     public static final Item.Properties ITEM_PROPERTIES = new Item.Properties().tab(ModSetup.ITEM_GROUP);
 
-    public static final RegistryObject<Block> PROTODERMIS_ORE_OVERWORLD = BLOCKS.register("protodermis_ore_overworld", () -> new Block(ORE_PROPERTIES));
+    public static final RegistryObject<Block> PROTODERMIS_ORE_OVERWORLD = BLOCKS.register("protodermis_ore_overworld", () -> new Block(Registration.BLOCK_PROPERTIES));
     public static final RegistryObject<Item> PROTODERMIS_ORE_OVERWORLD_ITEM = fromBlock(PROTODERMIS_ORE_OVERWORLD);
-    public static final RegistryObject<Block> PROTODERMIS_ORE_NETHER = BLOCKS.register("protodermis_ore_nether", () -> new Block(ORE_PROPERTIES));
+    public static final RegistryObject<Block> PROTODERMIS_ORE_NETHER = BLOCKS.register("protodermis_ore_nether", () -> new Block(Registration.BLOCK_PROPERTIES));
     public static final RegistryObject<Item> PROTODERMIS_ORE_NETHER_ITEM = fromBlock(PROTODERMIS_ORE_NETHER);
-    public static final RegistryObject<Block> PROTODERMIS_ORE_END = BLOCKS.register("protodermis_ore_end", () -> new Block(ORE_PROPERTIES));
+    public static final RegistryObject<Block> PROTODERMIS_ORE_END = BLOCKS.register("protodermis_ore_end", () -> new Block(Registration.BLOCK_PROPERTIES));
     public static final RegistryObject<Item> PROTODERMIS_ORE_END_ITEM = fromBlock(PROTODERMIS_ORE_END);
-    public static final RegistryObject<Block> PROTODERMIS_ORE_DEEPSLATE = BLOCKS.register("protodermis_ore_deepslate", () -> new Block(ORE_PROPERTIES));
+    public static final RegistryObject<Block> PROTODERMIS_ORE_DEEPSLATE = BLOCKS.register("protodermis_ore_deepslate", () -> new Block(Registration.BLOCK_PROPERTIES));
     public static final RegistryObject<Item> PROTODERMIS_ORE_DEEPSLATE_ITEM = fromBlock(PROTODERMIS_ORE_DEEPSLATE);
 
     public static final RegistryObject<ProtoGenBlock> PROTOGEN = BLOCKS.register("protogen", ProtoGenBlock::new);

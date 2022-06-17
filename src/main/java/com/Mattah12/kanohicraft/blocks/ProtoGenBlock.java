@@ -114,7 +114,7 @@ public class ProtoGenBlock extends Block implements EntityBlock {
                 };
                 NetworkHooks.openGui((ServerPlayer) player, containerProvider, be.getBlockPos());
             } else {
-                throw new IllegalStateException("Our named container provider is missing!");
+                throw new IllegalStateException("ProtoGen container provider is missing!");
             }
         }
         return InteractionResult.SUCCESS;

@@ -26,7 +26,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class ProtoGenBE extends BlockEntity {
 
-    public static final int PROTOGEN_CAPACITY = 50000; // Max capacity
+    public static final int PROTOGEN_CAPACITY = 10000; // Max capacity
     public static final int PROTOGEN_GENERATE = 60;    // Generation per tick
     public static final int PROTOGEN_SEND = 200;       // Power to send out per tick
 

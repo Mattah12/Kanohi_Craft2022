@@ -6,6 +6,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
@@ -62,7 +63,7 @@ public class KanBlockStates extends BlockStateProvider {
 
         floatingCube(frame, 0f, 0f, 1f, 1f, 1f, 15f);
         floatingCube(frame, 15f, 0f, 1f, 16f, 1f, 15f);
-       floatingCube(frame, 0f, 15f, 1f, 1f, 16f, 15f);
+        floatingCube(frame, 0f, 15f, 1f, 1f, 16f, 15f);
         floatingCube(frame, 15f, 15f, 1f, 16f, 16f, 15f);
 
         floatingCube(frame, 1f, 1f, 1f, 15f, 15f, 15f);
@@ -83,7 +84,7 @@ public class KanBlockStates extends BlockStateProvider {
     }*/
 
 
-    private void createProtoGenModel(Block block, BlockModelBuilder frame) {
+    /*private void createProtoGenModel(Block block, BlockModelBuilder frame) {
         BlockModelBuilder singleOff = models().getBuilder("block/protogen/singleoff")
                 .element().from(3, 3, 3).to(13, 13, 13).face(Direction.DOWN).texture("#single").end().end()
                 .texture("single", modLoc("block/protogen_off"));
@@ -105,6 +106,6 @@ public class KanBlockStates extends BlockStateProvider {
             bld.part().modelFile(models[i]).rotationY(90).rotationX(90).addModel().condition(BlockStateProperties.POWERED, powered);
             bld.part().modelFile(models[i]).rotationY(270).rotationX(90).addModel().condition(BlockStateProperties.POWERED, powered);
         }
-    }
+    }*/
 }
 
