@@ -3,7 +3,7 @@
   "textures": {
     "down": "kanohicraft:block/protogen_back",
     "up": "kanohicraft:block/protogen_top",
-    "north": "kanohicraft:block/protogen_off",
+    "north": "kanohicraft:block/protogen_powered",
     "south": "kanohicraft:block/protogen_back",
     "east": "kanohicraft:block/protogen_east",
     "west": "kanohicraft:block/protogen_west"
