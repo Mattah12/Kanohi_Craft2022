@@ -1,7 +1,7 @@
-package com.example.kanohicraft.blocks;
+package com.Mattah12.kanohicraft.blocks;
 
-import com.example.kanohicraft.setup.Registration;
-import com.example.kanohicraft.varia.CustomEnergyStorage;
+import com.Mattah12.kanohicraft.varia.CustomEnergyStorage;
+import com.Mattah12.kanohicraft.setup.Registration;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;

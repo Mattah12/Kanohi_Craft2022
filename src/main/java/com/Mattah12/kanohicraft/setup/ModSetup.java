@@ -1,4 +1,4 @@
-package com.example.kanohicraft.setup;
+package com.Mattah12.kanohicraft.setup;
 
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;

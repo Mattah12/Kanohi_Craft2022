@@ -1,6 +1,6 @@
-package com.example.kanohicraft.datagen;
+package com.Mattah12.kanohicraft.datagen;
 
-import com.example.kanohicraft.KanohiCraft;
+import com.Mattah12.kanohicraft.KanohiCraft;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;

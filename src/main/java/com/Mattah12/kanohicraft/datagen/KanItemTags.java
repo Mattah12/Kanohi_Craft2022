@@ -1,7 +1,7 @@
-package com.example.kanohicraft.datagen;
+package com.Mattah12.kanohicraft.datagen;
 
-import com.example.kanohicraft.KanohiCraft;
-import com.example.kanohicraft.setup.Registration;
+import com.Mattah12.kanohicraft.KanohiCraft;
+import com.Mattah12.kanohicraft.setup.Registration;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;

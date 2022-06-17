@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smelting",
   "ingredient": {
-    "item": "kanohicraft:protodermis_nugget"
+    "item": "kanohicraft:raw_protodermis"
   },
   "result": "kanohicraft:protodermis_ingot",
   "experience": 0.0,

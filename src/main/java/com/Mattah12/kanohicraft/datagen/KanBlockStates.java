@@ -1,7 +1,7 @@
-package com.example.kanohicraft.datagen;
+package com.Mattah12.kanohicraft.datagen;
 
-import com.example.kanohicraft.KanohiCraft;
-import com.example.kanohicraft.setup.Registration;
+import com.Mattah12.kanohicraft.KanohiCraft;
+import com.Mattah12.kanohicraft.setup.Registration;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -30,8 +30,8 @@ public class KanBlockStates extends BlockStateProvider {
 
     private void registerProtoGen() {
         //New line testing
-        //BlockModelBuilder protogenmodel = models().getBuilder("block/protogen/main");
-        //protogenmodel.parent(models().getExistingFile(mcLoc("cube")));
+        BlockModelBuilder protogenmodel = models().getBuilder("block/protogen/main");
+        protogenmodel.parent(models().getExistingFile(mcLoc("cube")));
 
         Block block = Registration.PROTOGEN.get();
         ResourceLocation down = modLoc("block/protogen_back");
@@ -81,6 +81,7 @@ public class KanBlockStates extends BlockStateProvider {
                 .allFaces((direction, faceBuilder) -> faceBuilder.texture("#window"))
                 .end();
     }*/
+
 
     private void createProtoGenModel(Block block, BlockModelBuilder frame) {
         BlockModelBuilder singleOff = models().getBuilder("block/protogen/singleoff")

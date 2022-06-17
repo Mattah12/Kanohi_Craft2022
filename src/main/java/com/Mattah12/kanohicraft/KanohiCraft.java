@@ -1,8 +1,8 @@
-package com.example.kanohicraft;
+package com.Mattah12.kanohicraft;
 
-import com.example.kanohicraft.setup.ClientSetup;
-import com.example.kanohicraft.setup.ModSetup;
-import com.example.kanohicraft.setup.Registration;
+import com.Mattah12.kanohicraft.setup.ClientSetup;
+import com.Mattah12.kanohicraft.setup.ModSetup;
+import com.Mattah12.kanohicraft.setup.Registration;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;

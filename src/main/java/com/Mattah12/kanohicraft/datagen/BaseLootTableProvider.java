@@ -1,4 +1,4 @@
-package com.example.kanohicraft.datagen;
+package com.Mattah12.kanohicraft.datagen;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

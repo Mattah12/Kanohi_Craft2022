@@ -1,7 +1,7 @@
-package com.example.kanohicraft.client;
+package com.Mattah12.kanohicraft.client;
 
-import com.example.kanohicraft.KanohiCraft;
-import com.example.kanohicraft.blocks.ProtoGenContainer;
+import com.Mattah12.kanohicraft.KanohiCraft;
+import com.Mattah12.kanohicraft.blocks.ProtoGenContainer;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;

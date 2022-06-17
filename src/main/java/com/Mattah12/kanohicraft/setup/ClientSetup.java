@@ -1,6 +1,6 @@
-package com.example.kanohicraft.setup;
+package com.Mattah12.kanohicraft.setup;
 
-import com.example.kanohicraft.client.ProtoGenScreen;
+import com.Mattah12.kanohicraft.client.ProtoGenScreen;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 

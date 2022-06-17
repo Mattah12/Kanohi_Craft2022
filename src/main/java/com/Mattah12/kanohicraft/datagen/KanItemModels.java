@@ -1,7 +1,7 @@
-package com.example.kanohicraft.datagen;
+package com.Mattah12.kanohicraft.datagen;
 
-import com.example.kanohicraft.KanohiCraft;
-import com.example.kanohicraft.setup.Registration;
+import com.Mattah12.kanohicraft.KanohiCraft;
+import com.Mattah12.kanohicraft.setup.Registration;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -21,9 +21,9 @@ public class KanItemModels extends ItemModelProvider {
 
         withExistingParent(Registration.PROTOGEN_ITEM.get().getRegistryName().getPath(),modLoc("block/protogen"));
 
-        singleTexture(Registration.PROTODERMIS_NUGGET.get().getRegistryName().getPath(),
+        singleTexture(Registration.PROTODERMIS_RAW.get().getRegistryName().getPath(),
                 mcLoc("item/generated"),
-                    "layer0", modLoc("item/protodermis_nugget"));
+                    "layer0", modLoc("item/raw_protodermis"));
         singleTexture(Registration.PROTODERMIS_INGOT.get().getRegistryName().getPath(),
                 mcLoc("item/generated"),
                 "layer0", modLoc("item/protodermis_ingot"));

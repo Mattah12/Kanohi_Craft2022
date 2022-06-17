@@ -1,6 +1,6 @@
-package com.example.kanohicraft.datagen;
+package com.Mattah12.kanohicraft.datagen;
 
-import com.example.kanohicraft.setup.Registration;
+import com.Mattah12.kanohicraft.setup.Registration;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -38,9 +38,9 @@ public class KanRecipes extends RecipeProvider {
                 .unlockedBy("has_ore", has(Registration.PROTODERMIS_ORE_ITEM))
                 .save(consumer, "protodermis_ingot1");
 
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(Registration.PROTODERMIS_NUGGET.get()),
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(Registration.PROTODERMIS_RAW.get()),
                         Registration.PROTODERMIS_INGOT.get(), 0.0f, 100)
-                .unlockedBy("has_nugget", has(Registration.PROTODERMIS_NUGGET.get()))
+                .unlockedBy("has_nugget", has(Registration.PROTODERMIS_RAW.get()))
                 .save(consumer, "protodermis_ingot2");
 
     }

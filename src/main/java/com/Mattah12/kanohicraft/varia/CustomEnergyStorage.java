@@ -1,4 +1,4 @@
-package com.example.kanohicraft.varia;
+package com.Mattah12.kanohicraft.varia;
 
 import net.minecraftforge.energy.EnergyStorage;
 
