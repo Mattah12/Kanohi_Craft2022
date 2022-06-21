@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "kanohicraft",
+  "pattern": [
+    "xxx",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "kanohicraft:protodermis_ingot"
+    }
+  },
+  "result": {
+    "item": "kanohicraft:protodermis_block"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "kanohicraft:block/protogen_off"
+    },
+    "powered=true": {
+      "model": "kanohicraft:block/protogen_powered"
+    }
+  }
+}

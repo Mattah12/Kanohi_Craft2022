@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "kanohicraft:protodermis_block"
+    }
+  ],
+  "result": {
+    "item": "kanohicraft:protodermis_ingot"
+  }
+}
