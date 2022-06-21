@@ -28,7 +28,7 @@ public class KanRecipes extends RecipeProvider {
         ShapelessRecipeBuilder.shapeless(Registration.PROTODERMIS_INGOT.get())
                 .requires(Registration.PROTODERMIS_BLOCK.get())
                 .unlockedBy("protodermis", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.PROTODERMIS_INGOT.get()))
-                .save(consumer);
+                .save(consumer, "proto_ingots_from_block");
 
         ShapedRecipeBuilder.shaped(Registration.PROTOGEN.get())
                 .pattern("xxx")
