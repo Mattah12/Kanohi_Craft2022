@@ -3,11 +3,9 @@ package com.Mattah12.kanohicraft.datagen;
 import com.Mattah12.kanohicraft.setup.Registration;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.ShapelessRecipe;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 
@@ -22,6 +20,16 @@ public class KanRecipes extends RecipeProvider {
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
 
+        ShapelessRecipeBuilder.shapeless(Registration.PROTODERMIS_NUGGET.get())
+                .requires(Registration.PROTODERMIS_INGOT.get())
+                .unlockedBy("protodermis", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.PROTODERMIS_INGOT.get()))
+                .save(consumer, "proto_nugget_from_ingot");
+
+        ShapelessRecipeBuilder.shapeless(Registration.PROTODERMIS_INGOT.get())
+                .requires(Registration.PROTODERMIS_BLOCK.get())
+                .unlockedBy("protodermis", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.PROTODERMIS_INGOT.get()))
+                .save(consumer);
+
         ShapedRecipeBuilder.shaped(Registration.PROTOGEN.get())
                 .pattern("xxx")
                 .pattern("xyx")
@@ -32,6 +40,25 @@ public class KanRecipes extends RecipeProvider {
                 .group("kanohicraft")
                 .unlockedBy("protodermis", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.PROTODERMIS_INGOT.get()))
                 .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.PROTODERMIS_BLOCK.get())
+                .pattern("xxx")
+                .pattern("xxx")
+                .pattern("xxx")
+                .define('x', Registration.PROTODERMIS_INGOT.get())
+                .group("kanohicraft")
+                .unlockedBy("protodermis", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.PROTODERMIS_INGOT.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.PROTODERMIS_INGOT.get())
+                .pattern("xxx")
+                .pattern("xxx")
+                .pattern("xxx")
+                .define('x', Registration.PROTODERMIS_NUGGET.get())
+                .group("kanohicraft")
+                .unlockedBy("protodermis", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.PROTODERMIS_INGOT.get()))
+                .save(consumer, "proto_ingot_from_nuggets");
+
 
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(Registration.PROTODERMIS_ORE_ITEM),
                         Registration.PROTODERMIS_INGOT.get(), 1.0f, 100)

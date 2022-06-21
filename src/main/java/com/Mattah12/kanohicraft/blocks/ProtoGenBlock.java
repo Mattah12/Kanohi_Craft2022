@@ -37,10 +37,6 @@ public class ProtoGenBlock extends Block implements EntityBlock {
     public static final String MESSAGE_PROTOGEN = "message.protogen";
     public static final String SCREEN_TUTORIAL_PROTOGEN = "screen.tutorial.protogen";
 
-    //Test below numbers
-    //private static final VoxelShape RENDER_SHAPE = Shapes.box(0.1, 0.1, 0.1, 0.9, 0.9, 0.9);
-    //private static final VoxelShape RENDER_SHAPE = Shapes.box(1, 1, 1, 1, 1, 1);
-
     public ProtoGenBlock() {
         super(Properties.of(Material.METAL)
                 .sound(SoundType.METAL)
@@ -50,18 +46,10 @@ public class ProtoGenBlock extends Block implements EntityBlock {
         );
     }
 
-    //Test removing after testing above numbers
-    /*@SuppressWarnings("deprecation")
-    @Override
-    public VoxelShape getOcclusionShape(BlockState state, BlockGetter reader, BlockPos pos) {
-        return RENDER_SHAPE;
-    }*/
-
-
     @Override
     public void appendHoverText(ItemStack stack, @Nullable BlockGetter reader, List<Component> list, TooltipFlag flags) {
         list.add(new TranslatableComponent(MESSAGE_PROTOGEN, Integer.toString(ProtoGenBE.PROTOGEN_GENERATE))
-                .withStyle(ChatFormatting.DARK_PURPLE));
+                .withStyle(ChatFormatting.GOLD));
     }
 
     @Nullable

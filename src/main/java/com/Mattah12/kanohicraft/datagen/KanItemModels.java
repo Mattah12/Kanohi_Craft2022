@@ -18,8 +18,9 @@ public class KanItemModels extends ItemModelProvider {
         withExistingParent(Registration.PROTODERMIS_ORE_NETHER_ITEM.get().getRegistryName().getPath(), modLoc("block/protodermis_ore_nether"));
         withExistingParent(Registration.PROTODERMIS_ORE_END_ITEM.get().getRegistryName().getPath(), modLoc("block/protodermis_ore_end"));
         withExistingParent(Registration.PROTODERMIS_ORE_DEEPSLATE_ITEM.get().getRegistryName().getPath(), modLoc("block/protodermis_ore_deepslate"));
+        withExistingParent(Registration.PROTODERMIS_BLOCK.get().getRegistryName().getPath(), modLoc("block/protodermis_block"));
 
-        withExistingParent(Registration.PROTOGEN_ITEM.get().getRegistryName().getPath(),modLoc("block/protogen"));
+
 
         singleTexture(Registration.PROTODERMIS_RAW.get().getRegistryName().getPath(),
                 mcLoc("item/generated"),
@@ -27,5 +28,8 @@ public class KanItemModels extends ItemModelProvider {
         singleTexture(Registration.PROTODERMIS_INGOT.get().getRegistryName().getPath(),
                 mcLoc("item/generated"),
                 "layer0", modLoc("item/protodermis_ingot"));
+        singleTexture(Registration.PROTODERMIS_NUGGET.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/protodermis_nugget"));
     }
 }

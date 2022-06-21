@@ -1,12 +1,14 @@
 {
+  "block.kanohicraft.protodermis_block": "Protodermis Block",
   "block.kanohicraft.protodermis_ore_deepslate": "Protodermis Ore",
   "block.kanohicraft.protodermis_ore_end": "Protodermis Ore",
   "block.kanohicraft.protodermis_ore_nether": "Protodermis Ore",
   "block.kanohicraft.protodermis_ore_overworld": "Protodermis Ore",
   "block.kanohicraft.protogen": "Protodermis Generator",
   "item.kanohicraft.protodermis_ingot": "Protodermis Ingot",
+  "item.kanohicraft.protodermis_nugget": "Protodermis Nugget",
   "item.kanohicraft.raw_protodermis": "Raw Protodermis",
   "itemGroup.kanohicraft": "KanohiCraft",
-  "message.protogen": "Protodermis Generator generating at s% per tick",
+  "message.protogen": "Protodermis Generator generating at %s per tick",
   "screen.tutorial.protogen": "Protodermis Generator"
 }

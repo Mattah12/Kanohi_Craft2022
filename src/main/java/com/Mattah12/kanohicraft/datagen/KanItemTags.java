@@ -27,7 +27,9 @@ public class KanItemTags extends ItemTagsProvider {
                 .add(Registration.PROTODERMIS_ORE_OVERWORLD_ITEM.get())
                 .add(Registration.PROTODERMIS_ORE_NETHER_ITEM.get())
                 .add(Registration.PROTODERMIS_ORE_END_ITEM.get())
-                .add(Registration.PROTODERMIS_ORE_DEEPSLATE_ITEM.get());
+                .add(Registration.PROTODERMIS_ORE_DEEPSLATE_ITEM.get())
+                .add(Registration.PROTODERMIS_NUGGET.get())
+                .add(Registration.PROTODERMIS_BLOCK_ITEM.get());
 
     }
 

@@ -17,7 +17,7 @@ public class KanLanguageProvider extends LanguageProvider {
     protected void addTranslations() {
         add("itemGroup." + ModSetup.TAB_NAME, "KanohiCraft");
 
-        add(ProtoGenBlock.MESSAGE_PROTOGEN, "Protodermis Generator generating at s% per tick");
+        add(ProtoGenBlock.MESSAGE_PROTOGEN, "Protodermis Generator generating at %s per tick");
         add(ProtoGenBlock.SCREEN_TUTORIAL_PROTOGEN, "Protodermis Generator");
 
         add(Registration.PROTOGEN.get(), "Protodermis Generator");
@@ -29,5 +29,7 @@ public class KanLanguageProvider extends LanguageProvider {
 
         add(Registration.PROTODERMIS_RAW.get(), "Raw Protodermis");
         add(Registration.PROTODERMIS_INGOT.get(), "Protodermis Ingot");
+        add(Registration.PROTODERMIS_NUGGET.get(), "Protodermis Nugget");
+        add(Registration.PROTODERMIS_BLOCK.get(), "Protodermis Block");
     }
 }

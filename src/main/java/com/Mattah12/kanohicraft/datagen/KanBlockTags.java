@@ -21,24 +21,26 @@ public class KanBlockTags extends BlockTagsProvider {
                 .add(Registration.PROTODERMIS_ORE_OVERWORLD.get())
                 .add(Registration.PROTODERMIS_ORE_NETHER.get())
                 .add(Registration.PROTODERMIS_ORE_END.get())
-                .add(Registration.PROTODERMIS_ORE_DEEPSLATE.get());
+                .add(Registration.PROTODERMIS_ORE_DEEPSLATE.get())
+                .add(Registration.PROTODERMIS_BLOCK.get());
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(Registration.PROTOGEN.get())
                 .add(Registration.PROTODERMIS_ORE_OVERWORLD.get())
                 .add(Registration.PROTODERMIS_ORE_NETHER.get())
                 .add(Registration.PROTODERMIS_ORE_END.get())
-                .add(Registration.PROTODERMIS_ORE_DEEPSLATE.get());
+                .add(Registration.PROTODERMIS_ORE_DEEPSLATE.get())
+                .add(Registration.PROTODERMIS_BLOCK.get());
         tag(Tags.Blocks.ORES)
                 .add(Registration.PROTODERMIS_ORE_OVERWORLD.get())
                 .add(Registration.PROTODERMIS_ORE_NETHER.get())
                 .add(Registration.PROTODERMIS_ORE_END.get())
                 .add(Registration.PROTODERMIS_ORE_DEEPSLATE.get());
-
         tag(Registration.PROTODERMIS_ORE)
                 .add(Registration.PROTODERMIS_ORE_OVERWORLD.get())
                 .add(Registration.PROTODERMIS_ORE_NETHER.get())
                 .add(Registration.PROTODERMIS_ORE_END.get())
-               .add(Registration.PROTODERMIS_ORE_DEEPSLATE.get());
+                .add(Registration.PROTODERMIS_ORE_DEEPSLATE.get())
+                .add(Registration.PROTODERMIS_BLOCK.get());
     }
 
     @Override

@@ -56,8 +56,13 @@ public class Registration {
     public static final RegistryObject<MenuType<ProtoGenContainer>> PROTOGEN_CONTAINER = CONTAINERS.register("",
             () -> IForgeMenuType.create((windowId, inv, data) -> new ProtoGenContainer(windowId, data.readBlockPos(), inv, inv.player)));
 
+
     public static final RegistryObject<Item> PROTODERMIS_RAW = ITEMS.register("raw_protodermis", () -> new Item(ITEM_PROPERTIES));
     public static final RegistryObject<Item> PROTODERMIS_INGOT = ITEMS.register("protodermis_ingot", () -> new Item(ITEM_PROPERTIES));
+    public static final RegistryObject<Item> PROTODERMIS_NUGGET = ITEMS.register("protodermis_nugget", () -> new Item(ITEM_PROPERTIES));
+    public static final RegistryObject<Block> PROTODERMIS_BLOCK = BLOCKS.register("protodermis_block", () -> new Block(BLOCK_PROPERTIES));
+    public static final RegistryObject<Item> PROTODERMIS_BLOCK_ITEM = fromBlock(PROTODERMIS_BLOCK);
+
 
     public static final Tags.IOptionalNamedTag<Block> PROTODERMIS_ORE = BlockTags.createOptional(new ResourceLocation(KanohiCraft.MODID, "protodermis_ore"));
     public static final Tags.IOptionalNamedTag<Item> PROTODERMIS_ORE_ITEM = ItemTags.createOptional(new ResourceLocation(KanohiCraft.MODID, "protodermis_ore"));
