@@ -63,9 +63,13 @@ public class Registration {
     public static final RegistryObject<Block> PROTODERMIS_BLOCK = BLOCKS.register("protodermis_block", () -> new Block(BLOCK_PROPERTIES));
     public static final RegistryObject<Item> PROTODERMIS_BLOCK_ITEM = fromBlock(PROTODERMIS_BLOCK);
 
+    public static final RegistryObject<Item> MASK_HAU = ITEMS.register("mask_hau", () -> new Item(ITEM_PROPERTIES));
+    public static final RegistryObject<Item> MASK_MIRU = ITEMS.register("mask_miru", () -> new Item(ITEM_PROPERTIES));
+
 
     public static final Tags.IOptionalNamedTag<Block> PROTODERMIS_ORE = BlockTags.createOptional(new ResourceLocation(KanohiCraft.MODID, "protodermis_ore"));
     public static final Tags.IOptionalNamedTag<Item> PROTODERMIS_ORE_ITEM = ItemTags.createOptional(new ResourceLocation(KanohiCraft.MODID, "protodermis_ore"));
+    public static final Tags.IOptionalNamedTag<Item> KANOHI = ItemTags.createOptional(new ResourceLocation(KanohiCraft.MODID,"kanohi"));
 
 
     // Conveniance function: Take a RegistryObject<Block> and make a corresponding RegistryObject<Item> from it

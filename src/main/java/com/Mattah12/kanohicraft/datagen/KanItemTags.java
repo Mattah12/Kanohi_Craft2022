@@ -30,6 +30,9 @@ public class KanItemTags extends ItemTagsProvider {
                 .add(Registration.PROTODERMIS_ORE_DEEPSLATE_ITEM.get())
                 .add(Registration.PROTODERMIS_NUGGET.get())
                 .add(Registration.PROTODERMIS_BLOCK_ITEM.get());
+        tag(Registration.KANOHI)
+                .add(Registration.MASK_HAU.get())
+                .add(Registration.MASK_MIRU.get());
 
     }
 

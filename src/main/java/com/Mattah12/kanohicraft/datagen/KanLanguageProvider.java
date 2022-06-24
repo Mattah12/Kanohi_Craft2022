@@ -31,5 +31,7 @@ public class KanLanguageProvider extends LanguageProvider {
         add(Registration.PROTODERMIS_INGOT.get(), "Protodermis Ingot");
         add(Registration.PROTODERMIS_NUGGET.get(), "Protodermis Nugget");
         add(Registration.PROTODERMIS_BLOCK.get(), "Protodermis Block");
+        add(Registration.MASK_HAU.get(), "Kanohi Hau: Mask of Shielding");
+        add(Registration.MASK_MIRU.get(), "Kanohi Hau: Mask of Levitation");
     }
 }

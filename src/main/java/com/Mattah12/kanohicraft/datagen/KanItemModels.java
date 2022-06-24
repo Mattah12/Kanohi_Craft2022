@@ -31,5 +31,11 @@ public class KanItemModels extends ItemModelProvider {
         singleTexture(Registration.PROTODERMIS_NUGGET.get().getRegistryName().getPath(),
                 mcLoc("item/generated"),
                 "layer0", modLoc("item/protodermis_nugget"));
+        singleTexture(Registration.MASK_HAU.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/maskhau"));
+        singleTexture(Registration.MASK_MIRU.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/maskmiru"));
     }
 }
