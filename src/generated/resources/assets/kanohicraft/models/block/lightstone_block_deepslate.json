@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "layer0": "kanohicraft:block/lightstone_block_deepslate",
+    "layer1": "kanohicraft:block/lightstone_block_deepslate_gems"
+  }
+}

@@ -22,7 +22,12 @@ public class KanBlockTags extends BlockTagsProvider {
                 .add(Registration.PROTODERMIS_ORE_NETHER.get())
                 .add(Registration.PROTODERMIS_ORE_END.get())
                 .add(Registration.PROTODERMIS_ORE_DEEPSLATE.get())
-                .add(Registration.PROTODERMIS_BLOCK.get());
+                .add(Registration.PROTODERMIS_BLOCK.get())
+                .add(Registration.LIGHTSTONE_BLOCK_DEEPSLATE.get())
+                .add(Registration.LIGHTSTONE_BLOCK_OVERWORLD.get());
+        tag(BlockTags.NEEDS_STONE_TOOL)
+                .add(Registration.LIGHTSTONE_BLOCK_DEEPSLATE.get())
+                .add(Registration.LIGHTSTONE_BLOCK_OVERWORLD.get());
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(Registration.PROTOGEN.get())
                 .add(Registration.PROTODERMIS_ORE_OVERWORLD.get())
@@ -41,6 +46,9 @@ public class KanBlockTags extends BlockTagsProvider {
                 .add(Registration.PROTODERMIS_ORE_END.get())
                 .add(Registration.PROTODERMIS_ORE_DEEPSLATE.get())
                 .add(Registration.PROTODERMIS_BLOCK.get());
+        tag(Registration.LIGHTSTONE_BLOCKS)
+                .add(Registration.LIGHTSTONE_BLOCK_DEEPSLATE.get())
+                .add(Registration.LIGHTSTONE_BLOCK_OVERWORLD.get());
     }
 
     @Override

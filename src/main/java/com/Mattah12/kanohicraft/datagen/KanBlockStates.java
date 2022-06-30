@@ -20,5 +20,8 @@ public class KanBlockStates extends BlockStateProvider {
         simpleBlock(Registration.PROTODERMIS_ORE_END.get());
         simpleBlock(Registration.PROTODERMIS_ORE_DEEPSLATE.get());
         simpleBlock(Registration.PROTODERMIS_BLOCK.get());
+
+        simpleBlock(Registration.LIGHTSTONE_BLOCK_OVERWORLD.get());
+        simpleBlock(Registration.LIGHTSTONE_BLOCK_DEEPSLATE.get());
     }
 }

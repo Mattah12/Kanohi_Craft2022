@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "down": {
+      "layer0": "kanohicraft:block/lightstone_block_overworld",
+      "layer1": "kanohicraft:block/lightstone_block_overworld_gems"
+    },
+    "up": {
+      "layer0": "kanohicraft:block/lightstone_block_overworld",
+      "layer1": "kanohicraft:block/lightstone_block_overworld_gems"
+    },
+    "north": {
+      "layer0": "kanohicraft:block/lightstone_block_overworld",
+      "layer1": "kanohicraft:block/lightstone_block_overworld_gems"
+    },
+    "south": {
+      "layer0": "kanohicraft:block/lightstone_block_overworld",
+      "layer1": "kanohicraft:block/lightstone_block_overworld_gems"
+    },
+    "east": {
+      "layer0": "kanohicraft:block/lightstone_block_overworld",
+      "layer1": "kanohicraft:block/lightstone_block_overworld_gems"
+    },
+    "west": {
+      "layer0": "kanohicraft:block/lightstone_block_overworld",
+      "layer1": "kanohicraft:block/lightstone_block_overworld_gems"
+    }
+  }
+}

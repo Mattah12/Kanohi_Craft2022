@@ -23,6 +23,10 @@ public class KanItemTags extends ItemTagsProvider {
                 .add(Registration.PROTODERMIS_ORE_DEEPSLATE_ITEM.get());
         tag(Tags.Items.INGOTS)
                 .add(Registration.PROTODERMIS_INGOT.get());
+        tag(Registration.LIGHTSTONE_ITEMS)
+                .add(Registration.LIGHTSTONE.get())
+                .add(Registration.LIGHTSTONE_BLOCK_OVERWORLD_ITEM.get())
+                .add(Registration.LIGHTSTONE_BLOCK_DEEPSLATE_ITEM.get());
         tag(Registration.PROTODERMIS_ORE_ITEM)
                 .add(Registration.PROTODERMIS_ORE_OVERWORLD_ITEM.get())
                 .add(Registration.PROTODERMIS_ORE_NETHER_ITEM.get())
@@ -32,7 +36,11 @@ public class KanItemTags extends ItemTagsProvider {
                 .add(Registration.PROTODERMIS_BLOCK_ITEM.get());
         tag(Registration.KANOHI)
                 .add(Registration.MASK_HAU.get())
-                .add(Registration.MASK_MIRU.get());
+                .add(Registration.MASK_MIRU.get())
+                .add(Registration.MASK_AKAKU.get())
+                .add(Registration.MASK_KAKAMA.get())
+                .add(Registration.MASK_KAUKAU.get())
+                .add(Registration.MASK_PAKARI.get());
 
     }
 

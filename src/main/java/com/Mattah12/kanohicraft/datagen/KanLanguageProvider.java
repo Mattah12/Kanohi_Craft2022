@@ -15,7 +15,7 @@ public class KanLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        add("itemGroup." + ModSetup.TAB_NAME, "KanohiCraft");
+        add("itemGroup." + ModSetup.TAB_NAME, "Kanohi Craft");
 
         add(ProtoGenBlock.MESSAGE_PROTOGEN, "Protodermis Generator generating at %s per tick");
         add(ProtoGenBlock.SCREEN_TUTORIAL_PROTOGEN, "Protodermis Generator");
@@ -31,7 +31,17 @@ public class KanLanguageProvider extends LanguageProvider {
         add(Registration.PROTODERMIS_INGOT.get(), "Protodermis Ingot");
         add(Registration.PROTODERMIS_NUGGET.get(), "Protodermis Nugget");
         add(Registration.PROTODERMIS_BLOCK.get(), "Protodermis Block");
+
+        add(Registration.LIGHTSTONE.get(), "Lightstone");
+        add(Registration.LIGHTSTONE_BLOCK_OVERWORLD.get(), "Lightstone Deposit");
+        add(Registration.LIGHTSTONE_BLOCK_DEEPSLATE.get(), "Lightstone Deposit");
+
+
         add(Registration.MASK_HAU.get(), "Kanohi Hau: Mask of Shielding");
-        add(Registration.MASK_MIRU.get(), "Kanohi Hau: Mask of Levitation");
+        add(Registration.MASK_MIRU.get(), "Kanohi Miru: Mask of Levitation");
+        add(Registration.MASK_KAUKAU.get(), "Kanohi Kaukau: Mask of Water Breathing");
+        add(Registration.MASK_PAKARI.get(), "Kanohi Pakari: Mask of Strength");
+        add(Registration.MASK_AKAKU.get(), "Kanohi Akaku: Mask of X-Ray Vision");
+        add(Registration.MASK_KAKAMA.get(), "Kanohi Kakama: Mask of Speed");
     }
 }

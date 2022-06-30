@@ -11,6 +11,7 @@ import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.GlassBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -38,17 +39,24 @@ public class Registration {
     }
 
     // Some common properties for our blocks and items
-    public static final BlockBehaviour.Properties BLOCK_PROPERTIES = BlockBehaviour.Properties.of(Material.STONE).strength(2f).requiresCorrectToolForDrops();
+    public static final BlockBehaviour.Properties STONE_PROPERTIES = BlockBehaviour.Properties.of(Material.STONE).strength(2f).requiresCorrectToolForDrops();
+    public static final BlockBehaviour.Properties METAL_PROPERTIES = BlockBehaviour.Properties.of(Material.METAL).strength(3f).requiresCorrectToolForDrops();
+    public static final BlockBehaviour.Properties LIGHTSTONE_PROPERTIES = BlockBehaviour.Properties.of(Material.STONE).strength(2f).requiresCorrectToolForDrops().noOcclusion().lightLevel(s -> 8);
     public static final Item.Properties ITEM_PROPERTIES = new Item.Properties().tab(ModSetup.ITEM_GROUP);
 
-    public static final RegistryObject<Block> PROTODERMIS_ORE_OVERWORLD = BLOCKS.register("protodermis_ore_overworld", () -> new Block(Registration.BLOCK_PROPERTIES));
+    public static final RegistryObject<Block> PROTODERMIS_ORE_OVERWORLD = BLOCKS.register("protodermis_ore_overworld", () -> new Block(Registration.STONE_PROPERTIES));
     public static final RegistryObject<Item> PROTODERMIS_ORE_OVERWORLD_ITEM = fromBlock(PROTODERMIS_ORE_OVERWORLD);
-    public static final RegistryObject<Block> PROTODERMIS_ORE_NETHER = BLOCKS.register("protodermis_ore_nether", () -> new Block(Registration.BLOCK_PROPERTIES));
+    public static final RegistryObject<Block> PROTODERMIS_ORE_NETHER = BLOCKS.register("protodermis_ore_nether", () -> new Block(Registration.STONE_PROPERTIES));
     public static final RegistryObject<Item> PROTODERMIS_ORE_NETHER_ITEM = fromBlock(PROTODERMIS_ORE_NETHER);
-    public static final RegistryObject<Block> PROTODERMIS_ORE_END = BLOCKS.register("protodermis_ore_end", () -> new Block(Registration.BLOCK_PROPERTIES));
+    public static final RegistryObject<Block> PROTODERMIS_ORE_END = BLOCKS.register("protodermis_ore_end", () -> new Block(Registration.STONE_PROPERTIES));
     public static final RegistryObject<Item> PROTODERMIS_ORE_END_ITEM = fromBlock(PROTODERMIS_ORE_END);
-    public static final RegistryObject<Block> PROTODERMIS_ORE_DEEPSLATE = BLOCKS.register("protodermis_ore_deepslate", () -> new Block(Registration.BLOCK_PROPERTIES));
+    public static final RegistryObject<Block> PROTODERMIS_ORE_DEEPSLATE = BLOCKS.register("protodermis_ore_deepslate", () -> new Block(Registration.STONE_PROPERTIES));
     public static final RegistryObject<Item> PROTODERMIS_ORE_DEEPSLATE_ITEM = fromBlock(PROTODERMIS_ORE_DEEPSLATE);
+
+    public static final RegistryObject<Block> LIGHTSTONE_BLOCK_OVERWORLD = BLOCKS.register("lightstone_block_overworld", () -> new Block(Registration.LIGHTSTONE_PROPERTIES));
+    public static final RegistryObject<Item> LIGHTSTONE_BLOCK_OVERWORLD_ITEM = fromBlock(LIGHTSTONE_BLOCK_OVERWORLD);
+    public static final RegistryObject<Block> LIGHTSTONE_BLOCK_DEEPSLATE = BLOCKS.register("lightstone_block_deepslate", () -> new Block(Registration.LIGHTSTONE_PROPERTIES));
+    public static final RegistryObject<Item> LIGHTSTONE_BLOCK_DEEPSLATE_ITEM = fromBlock(LIGHTSTONE_BLOCK_DEEPSLATE);
 
     public static final RegistryObject<ProtoGenBlock> PROTOGEN = BLOCKS.register("protogen", ProtoGenBlock::new);
     public static final RegistryObject<Item> PROTOGEN_ITEM = fromBlock(PROTOGEN);
@@ -60,16 +68,24 @@ public class Registration {
     public static final RegistryObject<Item> PROTODERMIS_RAW = ITEMS.register("raw_protodermis", () -> new Item(ITEM_PROPERTIES));
     public static final RegistryObject<Item> PROTODERMIS_INGOT = ITEMS.register("protodermis_ingot", () -> new Item(ITEM_PROPERTIES));
     public static final RegistryObject<Item> PROTODERMIS_NUGGET = ITEMS.register("protodermis_nugget", () -> new Item(ITEM_PROPERTIES));
-    public static final RegistryObject<Block> PROTODERMIS_BLOCK = BLOCKS.register("protodermis_block", () -> new Block(BLOCK_PROPERTIES));
+    public static final RegistryObject<Block> PROTODERMIS_BLOCK = BLOCKS.register("protodermis_block", () -> new Block(METAL_PROPERTIES));
     public static final RegistryObject<Item> PROTODERMIS_BLOCK_ITEM = fromBlock(PROTODERMIS_BLOCK);
+
+    public static final RegistryObject<Item> LIGHTSTONE = ITEMS.register("lightstone", () -> new Item(ITEM_PROPERTIES));
 
     public static final RegistryObject<Item> MASK_HAU = ITEMS.register("mask_hau", () -> new Item(ITEM_PROPERTIES));
     public static final RegistryObject<Item> MASK_MIRU = ITEMS.register("mask_miru", () -> new Item(ITEM_PROPERTIES));
+    public static final RegistryObject<Item> MASK_KAUKAU = ITEMS.register("mask_kaukau", () -> new Item(ITEM_PROPERTIES));
+    public static final RegistryObject<Item> MASK_PAKARI = ITEMS.register("mask_pakari", () -> new Item(ITEM_PROPERTIES));
+    public static final RegistryObject<Item> MASK_AKAKU = ITEMS.register("mask_akaku", () -> new Item(ITEM_PROPERTIES));
+    public static final RegistryObject<Item> MASK_KAKAMA = ITEMS.register("mask_kakama", () -> new Item(ITEM_PROPERTIES));
 
 
     public static final Tags.IOptionalNamedTag<Block> PROTODERMIS_ORE = BlockTags.createOptional(new ResourceLocation(KanohiCraft.MODID, "protodermis_ore"));
     public static final Tags.IOptionalNamedTag<Item> PROTODERMIS_ORE_ITEM = ItemTags.createOptional(new ResourceLocation(KanohiCraft.MODID, "protodermis_ore"));
     public static final Tags.IOptionalNamedTag<Item> KANOHI = ItemTags.createOptional(new ResourceLocation(KanohiCraft.MODID,"kanohi"));
+    public static final Tags.IOptionalNamedTag<Item> LIGHTSTONE_ITEMS = ItemTags.createOptional(new ResourceLocation(KanohiCraft.MODID,"lightstone_item"));
+    public static final Tags.IOptionalNamedTag<Block> LIGHTSTONE_BLOCKS = BlockTags.createOptional(new ResourceLocation(KanohiCraft.MODID,"lightstone_block"));
 
 
     // Conveniance function: Take a RegistryObject<Block> and make a corresponding RegistryObject<Item> from it

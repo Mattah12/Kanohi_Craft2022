@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "kanohicraft:lightstone",
+    "kanohicraft:lightstone_block_overworld",
+    "kanohicraft:lightstone_block_deepslate"
+  ]
+}

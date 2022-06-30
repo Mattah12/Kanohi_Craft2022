@@ -11,7 +11,7 @@ public class ModSetup {
 
     public static final CreativeModeTab ITEM_GROUP = new CreativeModeTab(TAB_NAME) {
         @Override
-        public ItemStack makeIcon() {return new ItemStack(Registration.PROTODERMIS_INGOT.get());}
+        public ItemStack makeIcon() {return new ItemStack(Registration.MASK_HAU.get());}
     };
 
     public static void init(FMLCommonSetupEvent event) {

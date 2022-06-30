@@ -19,6 +19,8 @@ public class KanItemModels extends ItemModelProvider {
         withExistingParent(Registration.PROTODERMIS_ORE_END_ITEM.get().getRegistryName().getPath(), modLoc("block/protodermis_ore_end"));
         withExistingParent(Registration.PROTODERMIS_ORE_DEEPSLATE_ITEM.get().getRegistryName().getPath(), modLoc("block/protodermis_ore_deepslate"));
         withExistingParent(Registration.PROTODERMIS_BLOCK.get().getRegistryName().getPath(), modLoc("block/protodermis_block"));
+        withExistingParent(Registration.LIGHTSTONE_BLOCK_OVERWORLD_ITEM.get().getRegistryName().getPath(), modLoc("block/lightstone_block_overworld"));
+        withExistingParent(Registration.LIGHTSTONE_BLOCK_DEEPSLATE_ITEM.get().getRegistryName().getPath(), modLoc("block/lightstone_block_deepslate"));
 
 
 
@@ -31,11 +33,29 @@ public class KanItemModels extends ItemModelProvider {
         singleTexture(Registration.PROTODERMIS_NUGGET.get().getRegistryName().getPath(),
                 mcLoc("item/generated"),
                 "layer0", modLoc("item/protodermis_nugget"));
+
+        singleTexture(Registration.LIGHTSTONE.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/lightstone"));
+
+
         singleTexture(Registration.MASK_HAU.get().getRegistryName().getPath(),
                 mcLoc("item/generated"),
                 "layer0", modLoc("item/maskhau"));
         singleTexture(Registration.MASK_MIRU.get().getRegistryName().getPath(),
                 mcLoc("item/generated"),
                 "layer0", modLoc("item/maskmiru"));
+        singleTexture(Registration.MASK_AKAKU.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/maskakaku"));
+        singleTexture(Registration.MASK_KAKAMA.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/maskkakama"));
+        singleTexture(Registration.MASK_PAKARI.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/maskpakari"));
+        singleTexture(Registration.MASK_KAUKAU.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/maskkaukau"));
     }
 }
