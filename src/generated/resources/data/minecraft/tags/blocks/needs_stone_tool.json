@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "kanohicraft:lightstone_wood_lamp",
     "kanohicraft:lightstone_block_deepslate",
     "kanohicraft:lightstone_block_overworld"
   ]

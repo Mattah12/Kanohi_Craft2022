@@ -14,8 +14,9 @@ public class ClientSetup {
 
         });
 
-        ItemBlockRenderTypes.setRenderLayer(Registration.LIGHTSTONE_BLOCK_OVERWORLD.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(Registration.LIGHTSTONE_BLOCK_DEEPSLATE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(Registration.LIGHTSTONE_BLOCK_OVERWORLD.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(Registration.LIGHTSTONE_BLOCK_DEEPSLATE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(Registration.LIGHTSTONE_WOOD_LAMP.get(),RenderType.cutout());
 
 
     }

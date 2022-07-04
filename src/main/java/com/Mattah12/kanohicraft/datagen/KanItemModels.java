@@ -21,6 +21,7 @@ public class KanItemModels extends ItemModelProvider {
         withExistingParent(Registration.PROTODERMIS_BLOCK.get().getRegistryName().getPath(), modLoc("block/protodermis_block"));
         withExistingParent(Registration.LIGHTSTONE_BLOCK_OVERWORLD_ITEM.get().getRegistryName().getPath(), modLoc("block/lightstone_block_overworld"));
         withExistingParent(Registration.LIGHTSTONE_BLOCK_DEEPSLATE_ITEM.get().getRegistryName().getPath(), modLoc("block/lightstone_block_deepslate"));
+        withExistingParent(Registration.LIGHTSTONE_WOOD_LAMP_ITEM.get().getRegistryName().getPath(), modLoc("block/lightstone_wood_lamp"));
 
 
 

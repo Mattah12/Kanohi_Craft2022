@@ -57,6 +57,8 @@ public class Registration {
     public static final RegistryObject<Item> LIGHTSTONE_BLOCK_OVERWORLD_ITEM = fromBlock(LIGHTSTONE_BLOCK_OVERWORLD);
     public static final RegistryObject<Block> LIGHTSTONE_BLOCK_DEEPSLATE = BLOCKS.register("lightstone_block_deepslate", () -> new Block(Registration.LIGHTSTONE_PROPERTIES));
     public static final RegistryObject<Item> LIGHTSTONE_BLOCK_DEEPSLATE_ITEM = fromBlock(LIGHTSTONE_BLOCK_DEEPSLATE);
+    public static final RegistryObject<Block> LIGHTSTONE_WOOD_LAMP = BLOCKS.register("lightstone_wood_lamp", () -> new Block(Registration.LIGHTSTONE_PROPERTIES));
+    public static final RegistryObject<Item> LIGHTSTONE_WOOD_LAMP_ITEM = fromBlock(LIGHTSTONE_WOOD_LAMP);
 
     public static final RegistryObject<ProtoGenBlock> PROTOGEN = BLOCKS.register("protogen", ProtoGenBlock::new);
     public static final RegistryObject<Item> PROTOGEN_ITEM = fromBlock(PROTOGEN);
