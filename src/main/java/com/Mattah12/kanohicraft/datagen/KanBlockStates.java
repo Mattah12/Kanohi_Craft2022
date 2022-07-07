@@ -24,5 +24,6 @@ public class KanBlockStates extends BlockStateProvider {
         simpleBlock(Registration.LIGHTSTONE_BLOCK_OVERWORLD.get());
         simpleBlock(Registration.LIGHTSTONE_BLOCK_DEEPSLATE.get());
         simpleBlock(Registration.LIGHTSTONE_WOOD_LAMP.get());
+        simpleBlock(Registration.LIGHTSTONE_STONE_LAMP.get());
     }
 }

@@ -21,5 +21,8 @@ public class KanLootTables extends BaseLootTableProvider {
         lootTables.put(Registration.LIGHTSTONE_BLOCK_DEEPSLATE.get(), createSilkTouchTable("lightstone_block_deepslate", Registration.LIGHTSTONE_BLOCK_DEEPSLATE.get(), Registration.LIGHTSTONE.get(), 1, 4));
 
         createSimpleTable("protodermis_block", Registration.PROTODERMIS_BLOCK.get());
+        createSimpleTable("lightstone_wood_lamp", Registration.LIGHTSTONE_WOOD_LAMP.get());
+        createSimpleTable("lightstone_stone_lamp", Registration.LIGHTSTONE_STONE_LAMP.get());
+
     }
 }

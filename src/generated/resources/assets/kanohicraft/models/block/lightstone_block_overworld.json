@@ -6,7 +6,7 @@
     "texture2": "kanohicraft:block/lightstone_block_overworld_outer"
   },
   "elements": [
-    {   "from": [ 1, 1, 1 ],
+    {   "from": [1, 1, 1 ],
       "to": [ 15, 15, 15 ],
       "faces": {
         "down":  { "texture": "#texture1", "cullface": "down" },

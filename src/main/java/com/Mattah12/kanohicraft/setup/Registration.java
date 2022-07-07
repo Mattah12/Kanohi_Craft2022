@@ -42,6 +42,7 @@ public class Registration {
     public static final BlockBehaviour.Properties STONE_PROPERTIES = BlockBehaviour.Properties.of(Material.STONE).strength(2f).requiresCorrectToolForDrops();
     public static final BlockBehaviour.Properties METAL_PROPERTIES = BlockBehaviour.Properties.of(Material.METAL).strength(3f).requiresCorrectToolForDrops();
     public static final BlockBehaviour.Properties LIGHTSTONE_PROPERTIES = BlockBehaviour.Properties.of(Material.STONE).strength(2f).requiresCorrectToolForDrops().noOcclusion().lightLevel(s -> 8);
+    public static final BlockBehaviour.Properties LIGHTSTONE_LAMP_PROPERTIES = BlockBehaviour.Properties.of(Material.GLASS).strength(2f).requiresCorrectToolForDrops().noOcclusion().lightLevel(s -> 15);
     public static final Item.Properties ITEM_PROPERTIES = new Item.Properties().tab(ModSetup.ITEM_GROUP);
 
     public static final RegistryObject<Block> PROTODERMIS_ORE_OVERWORLD = BLOCKS.register("protodermis_ore_overworld", () -> new Block(Registration.STONE_PROPERTIES));
@@ -57,8 +58,10 @@ public class Registration {
     public static final RegistryObject<Item> LIGHTSTONE_BLOCK_OVERWORLD_ITEM = fromBlock(LIGHTSTONE_BLOCK_OVERWORLD);
     public static final RegistryObject<Block> LIGHTSTONE_BLOCK_DEEPSLATE = BLOCKS.register("lightstone_block_deepslate", () -> new Block(Registration.LIGHTSTONE_PROPERTIES));
     public static final RegistryObject<Item> LIGHTSTONE_BLOCK_DEEPSLATE_ITEM = fromBlock(LIGHTSTONE_BLOCK_DEEPSLATE);
-    public static final RegistryObject<Block> LIGHTSTONE_WOOD_LAMP = BLOCKS.register("lightstone_wood_lamp", () -> new Block(Registration.LIGHTSTONE_PROPERTIES));
+    public static final RegistryObject<Block> LIGHTSTONE_WOOD_LAMP = BLOCKS.register("lightstone_wood_lamp", () -> new Block(Registration.LIGHTSTONE_LAMP_PROPERTIES));
     public static final RegistryObject<Item> LIGHTSTONE_WOOD_LAMP_ITEM = fromBlock(LIGHTSTONE_WOOD_LAMP);
+    public static final RegistryObject<Block> LIGHTSTONE_STONE_LAMP = BLOCKS.register("lightstone_stone_lamp", () -> new Block(Registration.LIGHTSTONE_LAMP_PROPERTIES));
+    public static final RegistryObject<Item> LIGHTSTONE_STONE_LAMP_ITEM = fromBlock(LIGHTSTONE_STONE_LAMP);
 
     public static final RegistryObject<ProtoGenBlock> PROTOGEN = BLOCKS.register("protogen", ProtoGenBlock::new);
     public static final RegistryObject<Item> PROTOGEN_ITEM = fromBlock(PROTOGEN);
