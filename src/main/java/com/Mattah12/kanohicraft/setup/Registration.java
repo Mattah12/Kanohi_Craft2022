@@ -4,14 +4,17 @@ import com.Mattah12.kanohicraft.KanohiCraft;
 import com.Mattah12.kanohicraft.blocks.ProtoGenBE;
 import com.Mattah12.kanohicraft.blocks.ProtoGenBlock;
 import com.Mattah12.kanohicraft.blocks.ProtoGenContainer;
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.core.particles.ParticleType;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.GlassBlock;
+import net.minecraft.world.item.StandingAndWallBlockItem;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -62,6 +65,21 @@ public class Registration {
     public static final RegistryObject<Item> LIGHTSTONE_WOOD_LAMP_ITEM = fromBlock(LIGHTSTONE_WOOD_LAMP);
     public static final RegistryObject<Block> LIGHTSTONE_STONE_LAMP = BLOCKS.register("lightstone_stone_lamp", () -> new Block(Registration.LIGHTSTONE_LAMP_PROPERTIES));
     public static final RegistryObject<Item> LIGHTSTONE_STONE_LAMP_ITEM = fromBlock(LIGHTSTONE_STONE_LAMP);
+
+    public static final RegistryObject<Block> LIGHTSTONE_TORCH = BLOCKS.register("lightstone_torch", () -> new TorchBlock(BlockBehaviour.Properties.of(Material.DECORATION)
+            .noCollission().instabreak().lightLevel((p_50886_) -> {return 10;})
+            .sound(SoundType.GLASS), ParticleTypes.FLAME));
+    public static final RegistryObject<Block> WALL_LIGHTSTONE_TORCH = BLOCKS.register ("wall_lightstone_torch", () -> new WallTorchBlock((BlockBehaviour.Properties.of(Material.DECORATION)
+            .noCollission().instabreak().lightLevel((p_152607_) -> {return 10;})
+            .sound(SoundType.GLASS).dropsLike(Registration.LIGHTSTONE_TORCH.get())), ParticleTypes.FLAME));
+    public static final RegistryObject<Item> LIGHTSTONE_TORCH_ITEM = new StandingAndWallBlockItem.fromBlock(LIGHTSTONE_TORCH).ItemProperties();
+    public static final RegistryObject<Block> LIGHTSTONE_REFINED_TORCH = BLOCKS.register("lightstone_refined_torch", () -> new TorchBlock(BlockBehaviour.Properties.of(Material.DECORATION)
+            .noCollission().instabreak().lightLevel((p_50886_) -> {return 15;})
+            .sound(SoundType.GLASS), ParticleTypes.FLAME));
+    public static final RegistryObject<Block> WALL_LIGHTSTONE_REFINED_TORCH = BLOCKS.register ("wall_lightstone_refined_torch", () -> new WallTorchBlock((BlockBehaviour.Properties.of(Material.DECORATION)
+            .noCollission().instabreak().lightLevel((p_152607_) -> {return 15;})
+            .sound(SoundType.GLASS).dropsLike(Registration.LIGHTSTONE_REFINED_TORCH.get())), ParticleTypes.FLAME));
+    public static final RegistryObject<Item> LIGHTSTONE_REFINED_TORCH_ITEM = new StandingAndWallBlockItem.fromBlock(LIGHTSTONE_REFINED_TORCH).ItemProperties();
 
     public static final RegistryObject<ProtoGenBlock> PROTOGEN = BLOCKS.register("protogen", ProtoGenBlock::new);
     public static final RegistryObject<Item> PROTOGEN_ITEM = fromBlock(PROTOGEN);

@@ -4,6 +4,7 @@ import com.Mattah12.kanohicraft.setup.Registration;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.ShapelessRecipe;
 import net.minecraft.world.level.block.Blocks;
@@ -29,6 +30,12 @@ public class KanRecipes extends RecipeProvider {
                 .requires(Registration.PROTODERMIS_BLOCK.get())
                 .unlockedBy("protodermis", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.PROTODERMIS_INGOT.get()))
                 .save(consumer, "proto_ingots_from_block");
+
+        ShapelessRecipeBuilder.shapeless(Registration.LIGHTSTONE_TORCH.get())
+                .requires(Registration.LIGHTSTONE.get())
+                .requires(Items.STICK)
+                .unlockedBy("lightstone", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.LIGHTSTONE.get()))
+                .save(consumer, "lightstone_torch");
 
         ShapedRecipeBuilder.shaped(Registration.PROTOGEN.get())
                 .pattern("xxx")
@@ -59,6 +66,38 @@ public class KanRecipes extends RecipeProvider {
                 .unlockedBy("protodermis", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.PROTODERMIS_INGOT.get()))
                 .save(consumer, "proto_ingot_from_nuggets");
 
+        ShapedRecipeBuilder.shaped(Registration.LIGHTSTONE_REFINED_TORCH.get())
+                .pattern("  x")
+                .pattern(" y ")
+                .pattern("z  ")
+                .define('x', Registration.LIGHTSTONE.get())
+                .define('y', Blocks.COBBLESTONE)
+                .define('z', Items.STICK)
+                .group("kanohicraft")
+                .unlockedBy("lightstone", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.LIGHTSTONE.get()))
+                .save(consumer, "refined_lightstone_torch");
+
+        ShapedRecipeBuilder.shaped(Registration.LIGHTSTONE_STONE_LAMP.get())
+                .pattern("xyx")
+                .pattern("xzx")
+                .pattern("xyx")
+                .define('x', Blocks.STONE)
+                .define('y', Blocks.GLASS)
+                .define('z', Registration.LIGHTSTONE_TORCH.get())
+                .group("kanohicraft")
+                .unlockedBy("lighstone", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.LIGHTSTONE.get()))
+                .save(consumer, "lightstone_stone_lamp");
+
+        ShapedRecipeBuilder.shaped(Registration.LIGHTSTONE_WOOD_LAMP.get())
+                .pattern("xyx")
+                .pattern("xzx")
+                .pattern("xyx")
+                .define('x', Blocks.OAK_PLANKS)
+                .define('y', Blocks.GLASS)
+                .define('z', Registration.LIGHTSTONE_TORCH.get())
+                .group("kanohicraft")
+                .unlockedBy("lighstone", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.LIGHTSTONE.get()))
+                .save(consumer, "lightstone_wood_lamp");
 
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(Registration.PROTODERMIS_ORE_ITEM),
                         Registration.PROTODERMIS_INGOT.get(), 1.0f, 100)

@@ -52,7 +52,11 @@ public class KanBlockTags extends BlockTagsProvider {
                 .add(Registration.PROTODERMIS_BLOCK.get());
         tag(Registration.LIGHTSTONE_BLOCKS)
                 .add(Registration.LIGHTSTONE_BLOCK_DEEPSLATE.get())
-                .add(Registration.LIGHTSTONE_BLOCK_OVERWORLD.get());
+                .add(Registration.LIGHTSTONE_BLOCK_OVERWORLD.get())
+                .add(Registration.LIGHTSTONE_TORCH.get())
+                .add(Registration.LIGHTSTONE_REFINED_TORCH.get())
+                .add(Registration.WALL_LIGHTSTONE_TORCH.get())
+                .add(Registration.WALL_LIGHTSTONE_REFINED_TORCH.get());
     }
 
     @Override

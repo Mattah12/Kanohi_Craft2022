@@ -26,7 +26,9 @@ public class KanItemTags extends ItemTagsProvider {
         tag(Registration.LIGHTSTONE_ITEMS)
                 .add(Registration.LIGHTSTONE.get())
                 .add(Registration.LIGHTSTONE_BLOCK_OVERWORLD_ITEM.get())
-                .add(Registration.LIGHTSTONE_BLOCK_DEEPSLATE_ITEM.get());
+                .add(Registration.LIGHTSTONE_BLOCK_DEEPSLATE_ITEM.get())
+                .add(Registration.LIGHTSTONE_TORCH_ITEM.get())
+                .add(Registration.LIGHTSTONE_REFINED_TORCH_ITEM.get());
         tag(Registration.PROTODERMIS_ORE_ITEM)
                 .add(Registration.PROTODERMIS_ORE_OVERWORLD_ITEM.get())
                 .add(Registration.PROTODERMIS_ORE_NETHER_ITEM.get())

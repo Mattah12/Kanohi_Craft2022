@@ -23,6 +23,10 @@ public class KanLootTables extends BaseLootTableProvider {
         createSimpleTable("protodermis_block", Registration.PROTODERMIS_BLOCK.get());
         createSimpleTable("lightstone_wood_lamp", Registration.LIGHTSTONE_WOOD_LAMP.get());
         createSimpleTable("lightstone_stone_lamp", Registration.LIGHTSTONE_STONE_LAMP.get());
+        createSimpleTable("lighstone_torch", Registration.LIGHTSTONE_TORCH.get());
+        createSimpleTable("lighstone_refined_torch", Registration.LIGHTSTONE_REFINED_TORCH.get());
+        createSimpleTable("wall_lighstone_torch", Registration.WALL_LIGHTSTONE_TORCH.get());
+        createSimpleTable("wall_lighstone_refined_torch", Registration.WALL_LIGHTSTONE_REFINED_TORCH.get());
 
     }
 }
