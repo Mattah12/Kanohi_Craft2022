@@ -1,33 +1,86 @@
 {
   "parent": "minecraft:block/block",
   "textures": {
-    "particle": "kanohicraft:block/lightstone_block_overworld_outer",
-    "texture1": "kanohicraft:block/lightstone_block_inner",
-    "texture2": "kanohicraft:block/lightstone_block_overworld_outer"
+    "particle": "kanohicraft:block/lightstone_block_overworld",
+    "inner": "kanohicraft:block/lightstone_block_inner",
+    "outer": "kanohicraft:block/lightstone_block_overworld"
   },
   "elements": [
-    {   "from": [1, 1, 1 ],
-      "to": [ 15, 15, 15 ],
+    {
+      "from": [
+        1,
+        1,
+        1
+      ],
+      "to": [
+        15,
+        15,
+        15
+      ],
       "faces": {
-        "down":  { "texture": "#texture1", "cullface": "down" },
-        "up":    { "texture": "#texture1", "cullface": "up" },
-        "north": { "texture": "#texture1", "cullface": "north" },
-        "south": { "texture": "#texture1", "cullface": "south" },
-        "west":  { "texture": "#texture1", "cullface": "west" },
-        "east":  { "texture": "#texture1", "cullface": "east" }
+        "down": {
+          "texture": "#inner",
+          "cullface": "down"
+        },
+        "up": {
+          "texture": "#inner",
+          "cullface": "up"
+        },
+        "north": {
+          "texture": "#inner",
+          "cullface": "north"
+        },
+        "south": {
+          "texture": "#inner",
+          "cullface": "south"
+        },
+        "west": {
+          "texture": "#inner",
+          "cullface": "west"
+        },
+        "east": {
+          "texture": "#inner",
+          "cullface": "east"
+        }
       }
     },
-    {   "from": [ 0, 0, 0 ],
-      "to": [ 16, 16, 16],
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
       "faces": {
-        "down":  { "texture": "#texture2", "cullface": "down" },
-        "up":    { "texture": "#texture2", "cullface": "up" },
-        "north": { "texture": "#texture2", "cullface": "north" },
-        "south": { "texture": "#texture2", "cullface": "south" },
-        "west":  { "texture": "#texture2", "cullface": "west" },
-        "east":  { "texture": "#texture2", "cullface": "east" }
+        "down": {
+          "texture": "#outer",
+          "cullface": "down"
+        },
+        "up": {
+          "texture": "#outer",
+          "cullface": "up"
+        },
+        "north": {
+          "texture": "#outer",
+          "cullface": "north"
+        },
+        "south": {
+          "texture": "#outer",
+          "cullface": "south"
+        },
+        "west": {
+          "texture": "#outer",
+          "cullface": "west"
+        },
+        "east": {
+          "texture": "#outer",
+          "cullface": "east"
+        }
       }
     }
   ]
 }
-
