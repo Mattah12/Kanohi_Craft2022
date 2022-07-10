@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_torch",
+  "textures": {
+    "torch": "kanohicraft:block/lightstone_refined_torch"
+  }
+}

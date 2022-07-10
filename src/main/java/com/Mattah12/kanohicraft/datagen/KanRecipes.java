@@ -35,7 +35,7 @@ public class KanRecipes extends RecipeProvider {
                 .requires(Registration.LIGHTSTONE.get())
                 .requires(Items.STICK)
                 .unlockedBy("lightstone", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.LIGHTSTONE.get()))
-                .save(consumer, "lightstone_torch");
+                .save(consumer, "lightstone_torch_recipe");
 
         ShapedRecipeBuilder.shaped(Registration.PROTOGEN.get())
                 .pattern("xxx")
@@ -75,7 +75,7 @@ public class KanRecipes extends RecipeProvider {
                 .define('z', Items.STICK)
                 .group("kanohicraft")
                 .unlockedBy("lightstone", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.LIGHTSTONE.get()))
-                .save(consumer, "refined_lightstone_torch");
+                .save(consumer, "refined_lightstone_torch_recipe");
 
         ShapedRecipeBuilder.shaped(Registration.LIGHTSTONE_STONE_LAMP.get())
                 .pattern("xyx")

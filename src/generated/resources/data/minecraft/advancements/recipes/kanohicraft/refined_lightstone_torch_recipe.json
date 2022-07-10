@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:refined_lightstone_torch_recipe"
+    ]
+  },
+  "criteria": {
+    "lightstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kanohicraft:lightstone"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:refined_lightstone_torch_recipe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "lightstone",
+      "has_the_recipe"
+    ]
+  ]
+}

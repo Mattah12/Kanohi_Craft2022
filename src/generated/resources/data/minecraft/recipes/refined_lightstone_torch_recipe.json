@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "kanohicraft",
+  "pattern": [
+    "  x",
+    " y ",
+    "z  "
+  ],
+  "key": {
+    "x": {
+      "item": "kanohicraft:lightstone"
+    },
+    "y": {
+      "item": "minecraft:cobblestone"
+    },
+    "z": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "kanohicraft:lightstone_refined_torch_item"
+  }
+}

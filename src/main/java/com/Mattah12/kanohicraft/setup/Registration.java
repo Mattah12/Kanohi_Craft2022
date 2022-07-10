@@ -12,6 +12,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.StandingAndWallBlockItem;
 import net.minecraft.world.level.block.*;
@@ -72,14 +73,26 @@ public class Registration {
     public static final RegistryObject<Block> WALL_LIGHTSTONE_TORCH = BLOCKS.register ("wall_lightstone_torch", () -> new WallTorchBlock((BlockBehaviour.Properties.of(Material.DECORATION)
             .noCollission().instabreak().lightLevel((p_152607_) -> {return 10;})
             .sound(SoundType.GLASS).dropsLike(Registration.LIGHTSTONE_TORCH.get())), ParticleTypes.FLAME));
-    public static final RegistryObject<Item> LIGHTSTONE_TORCH_ITEM = new StandingAndWallBlockItem.fromBlock(LIGHTSTONE_TORCH).ItemProperties();
+    /*public static final RegistryObject<StandingAndWallBlockItem> LIGHTSTONE_TORCH_ITEM = ITEMS.register("lightstone_torch_item", () ->
+            new StandingAndWallBlockItem(Registration.LIGHTSTONE_TORCH.get(), Registration.WALL_LIGHTSTONE_TORCH.get(),
+                    new Item.Properties().tab(ModSetup.ITEM_GROUP)));*/
+    public static final RegistryObject<StandingAndWallBlockItem> LIGHTSTONE_TORCH_ITEM = ITEMS.register("lightstone_torch", () ->
+            new StandingAndWallBlockItem(Registration.LIGHTSTONE_TORCH.get(), Registration.WALL_LIGHTSTONE_TORCH.get(),
+                    new Item.Properties().tab(ModSetup.ITEM_GROUP)));
+
+
     public static final RegistryObject<Block> LIGHTSTONE_REFINED_TORCH = BLOCKS.register("lightstone_refined_torch", () -> new TorchBlock(BlockBehaviour.Properties.of(Material.DECORATION)
             .noCollission().instabreak().lightLevel((p_50886_) -> {return 15;})
-            .sound(SoundType.GLASS), ParticleTypes.FLAME));
+            .sound(SoundType.GLASS), ParticleTypes.ELECTRIC_SPARK));
     public static final RegistryObject<Block> WALL_LIGHTSTONE_REFINED_TORCH = BLOCKS.register ("wall_lightstone_refined_torch", () -> new WallTorchBlock((BlockBehaviour.Properties.of(Material.DECORATION)
             .noCollission().instabreak().lightLevel((p_152607_) -> {return 15;})
             .sound(SoundType.GLASS).dropsLike(Registration.LIGHTSTONE_REFINED_TORCH.get())), ParticleTypes.FLAME));
-    public static final RegistryObject<Item> LIGHTSTONE_REFINED_TORCH_ITEM = new StandingAndWallBlockItem.fromBlock(LIGHTSTONE_REFINED_TORCH).ItemProperties();
+    /*public static final RegistryObject<StandingAndWallBlockItem> LIGHTSTONE_REFINED_TORCH_ITEM = ITEMS.register("lightstone_refined_torch_item", () ->
+            new StandingAndWallBlockItem(Registration.LIGHTSTONE_REFINED_TORCH.get(), Registration.WALL_LIGHTSTONE_REFINED_TORCH.get(),
+                    new Item.Properties().tab(ModSetup.ITEM_GROUP)));*/
+    public static final RegistryObject<StandingAndWallBlockItem> LIGHTSTONE_REFINED_TORCH_ITEM = ITEMS.register("lightstone_refined_torch", () ->
+            new StandingAndWallBlockItem(Registration.LIGHTSTONE_REFINED_TORCH.get(), Registration.WALL_LIGHTSTONE_REFINED_TORCH.get(),
+                    new Item.Properties().tab(ModSetup.ITEM_GROUP)));
 
     public static final RegistryObject<ProtoGenBlock> PROTOGEN = BLOCKS.register("protogen", ProtoGenBlock::new);
     public static final RegistryObject<Item> PROTOGEN_ITEM = fromBlock(PROTOGEN);

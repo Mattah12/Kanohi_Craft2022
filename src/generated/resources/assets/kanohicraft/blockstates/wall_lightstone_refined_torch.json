@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "kanohicraft:block/wall_lightstone_refined_torch",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "kanohicraft:block/wall_lightstone_refined_torch",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "kanohicraft:block/wall_lightstone_refined_torch",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "kanohicraft:block/wall_lightstone_refined_torch"
+    }
+  }
+}

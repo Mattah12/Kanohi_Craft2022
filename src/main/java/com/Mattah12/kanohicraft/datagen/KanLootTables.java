@@ -28,5 +28,6 @@ public class KanLootTables extends BaseLootTableProvider {
         createSimpleTable("wall_lighstone_torch", Registration.WALL_LIGHTSTONE_TORCH.get());
         createSimpleTable("wall_lighstone_refined_torch", Registration.WALL_LIGHTSTONE_REFINED_TORCH.get());
 
+
     }
 }
