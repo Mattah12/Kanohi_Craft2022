@@ -1,6 +1,8 @@
 package com.Mattah12.kanohicraft.datagen;
 
+import com.Mattah12.kanohicraft.KanohiCraft;
 import com.Mattah12.kanohicraft.setup.Registration;
+import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
 
 public class KanLootTables extends BaseLootTableProvider {
@@ -20,13 +22,17 @@ public class KanLootTables extends BaseLootTableProvider {
         lootTables.put(Registration.LIGHTSTONE_BLOCK_OVERWORLD.get(), createSilkTouchTable("lightstone_block_overworld", Registration.LIGHTSTONE_BLOCK_OVERWORLD.get(), Registration.LIGHTSTONE.get(), 2, 3));
         lootTables.put(Registration.LIGHTSTONE_BLOCK_DEEPSLATE.get(), createSilkTouchTable("lightstone_block_deepslate", Registration.LIGHTSTONE_BLOCK_DEEPSLATE.get(), Registration.LIGHTSTONE.get(), 1, 4));
 
+
+
+
         createSimpleTable("protodermis_block", Registration.PROTODERMIS_BLOCK.get());
         createSimpleTable("lightstone_wood_lamp", Registration.LIGHTSTONE_WOOD_LAMP.get());
         createSimpleTable("lightstone_stone_lamp", Registration.LIGHTSTONE_STONE_LAMP.get());
-        createSimpleTable("lighstone_torch", Registration.LIGHTSTONE_TORCH.get());
-        createSimpleTable("lighstone_refined_torch", Registration.LIGHTSTONE_REFINED_TORCH.get());
-        createSimpleTable("wall_lighstone_torch", Registration.WALL_LIGHTSTONE_TORCH.get());
-        createSimpleTable("wall_lighstone_refined_torch", Registration.WALL_LIGHTSTONE_REFINED_TORCH.get());
+        createItemTable("lightstone_torch", Registration.LIGHTSTONE_TORCH_ITEM.get());
+        createItemTable("lightstone_refined_torch", Registration.LIGHTSTONE_REFINED_TORCH_ITEM.get());
+        createItemTable("wall_lightstone_torch", Registration.LIGHTSTONE_TORCH_ITEM.get());
+        createItemTable("wall_lightstone_refined_torch", Registration.LIGHTSTONE_REFINED_TORCH_ITEM.get());
+
 
 
     }

@@ -73,6 +73,14 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
         return LootTable.lootTable().withPool(builder);
     }
 
+    protected LootTable.Builder createItemTable(String name, Item item) {
+        LootPool.Builder builder = LootPool.lootPool()
+                .name(name)
+                .setRolls(ConstantValue.exactly(1))
+                .add(LootItem.lootTableItem(item));
+        return LootTable.lootTable().withPool(builder);
+    }
+
     protected LootTable.Builder createSilkTouchTable(String name, Block block, Item lootItem, float min, float max) {
         LootPool.Builder builder = LootPool.lootPool()
                 .name(name)
@@ -89,6 +97,7 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
                 );
         return LootTable.lootTable().withPool(builder);
     }
+
 
 
     @Override

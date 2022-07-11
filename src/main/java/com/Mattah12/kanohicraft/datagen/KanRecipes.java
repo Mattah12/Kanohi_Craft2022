@@ -21,12 +21,12 @@ public class KanRecipes extends RecipeProvider {
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
 
-        ShapelessRecipeBuilder.shapeless(Registration.PROTODERMIS_NUGGET.get())
+        ShapelessRecipeBuilder.shapeless(Registration.PROTODERMIS_NUGGET.get(),9)
                 .requires(Registration.PROTODERMIS_INGOT.get())
                 .unlockedBy("protodermis", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.PROTODERMIS_INGOT.get()))
                 .save(consumer, "proto_nugget_from_ingot");
 
-        ShapelessRecipeBuilder.shapeless(Registration.PROTODERMIS_INGOT.get())
+        ShapelessRecipeBuilder.shapeless(Registration.PROTODERMIS_INGOT.get(),9)
                 .requires(Registration.PROTODERMIS_BLOCK.get())
                 .unlockedBy("protodermis", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.PROTODERMIS_INGOT.get()))
                 .save(consumer, "proto_ingots_from_block");
