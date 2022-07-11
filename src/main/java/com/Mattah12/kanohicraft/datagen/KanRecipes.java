@@ -99,6 +99,28 @@ public class KanRecipes extends RecipeProvider {
                 .unlockedBy("lighstone", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.LIGHTSTONE.get()))
                 .save(consumer, "lightstone_wood_lamp");
 
+        ShapedRecipeBuilder.shaped(Registration.LIGHTSTONE_REFINED_STONE_LAMP.get())
+                .pattern("xyx")
+                .pattern("xzx")
+                .pattern("xyx")
+                .define('x', Blocks.STONE)
+                .define('y', Blocks.GLASS)
+                .define('z', Registration.LIGHTSTONE_REFINED_TORCH.get())
+                .group("kanohicraft")
+                .unlockedBy("lighstone", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.LIGHTSTONE.get()))
+                .save(consumer, "lightstone_refined_stone_lamp");
+
+        ShapedRecipeBuilder.shaped(Registration.LIGHTSTONE_REFINED_WOOD_LAMP.get())
+                .pattern("xyx")
+                .pattern("xzx")
+                .pattern("xyx")
+                .define('x', Blocks.OAK_PLANKS)
+                .define('y', Blocks.GLASS)
+                .define('z', Registration.LIGHTSTONE_REFINED_TORCH.get())
+                .group("kanohicraft")
+                .unlockedBy("lighstone", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.LIGHTSTONE.get()))
+                .save(consumer, "lightstone_refined_wood_lamp");
+
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(Registration.PROTODERMIS_ORE_ITEM),
                         Registration.PROTODERMIS_INGOT.get(), 1.0f, 100)
                 .unlockedBy("has_ore", has(Registration.PROTODERMIS_ORE_ITEM))

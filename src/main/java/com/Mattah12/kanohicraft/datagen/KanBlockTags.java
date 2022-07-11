@@ -26,10 +26,14 @@ public class KanBlockTags extends BlockTagsProvider {
                 .add(Registration.LIGHTSTONE_BLOCK_DEEPSLATE.get())
                 .add(Registration.LIGHTSTONE_BLOCK_OVERWORLD.get())
                 .add(Registration.LIGHTSTONE_WOOD_LAMP.get())
-                .add(Registration.LIGHTSTONE_STONE_LAMP.get());
+                .add(Registration.LIGHTSTONE_STONE_LAMP.get())
+                .add(Registration.LIGHTSTONE_REFINED_WOOD_LAMP.get())
+                .add(Registration.LIGHTSTONE_REFINED_STONE_LAMP.get());
         tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(Registration.LIGHTSTONE_WOOD_LAMP.get())
                 .add(Registration.LIGHTSTONE_STONE_LAMP.get())
+                .add(Registration.LIGHTSTONE_REFINED_WOOD_LAMP.get())
+                .add(Registration.LIGHTSTONE_REFINED_STONE_LAMP.get())
                 .add(Registration.LIGHTSTONE_BLOCK_DEEPSLATE.get())
                 .add(Registration.LIGHTSTONE_BLOCK_OVERWORLD.get());
         tag(BlockTags.NEEDS_IRON_TOOL)
@@ -53,6 +57,10 @@ public class KanBlockTags extends BlockTagsProvider {
         tag(Registration.LIGHTSTONE_BLOCKS)
                 .add(Registration.LIGHTSTONE_BLOCK_DEEPSLATE.get())
                 .add(Registration.LIGHTSTONE_BLOCK_OVERWORLD.get())
+                .add(Registration.LIGHTSTONE_WOOD_LAMP.get())
+                .add(Registration.LIGHTSTONE_STONE_LAMP.get())
+                .add(Registration.LIGHTSTONE_REFINED_WOOD_LAMP.get())
+                .add(Registration.LIGHTSTONE_REFINED_STONE_LAMP.get())
                 .add(Registration.LIGHTSTONE_TORCH.get())
                 .add(Registration.LIGHTSTONE_REFINED_TORCH.get())
                 .add(Registration.WALL_LIGHTSTONE_TORCH.get())

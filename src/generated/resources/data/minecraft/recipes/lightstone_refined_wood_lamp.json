@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "kanohicraft",
+  "pattern": [
+    "xyx",
+    "xzx",
+    "xyx"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:oak_planks"
+    },
+    "y": {
+      "item": "minecraft:glass"
+    },
+    "z": {
+      "item": "kanohicraft:lightstone_refined_torch"
+    }
+  },
+  "result": {
+    "item": "kanohicraft:lightstone_refined_wood_lamp"
+  }
+}

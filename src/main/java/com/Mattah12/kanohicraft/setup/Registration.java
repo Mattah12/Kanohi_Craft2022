@@ -62,10 +62,15 @@ public class Registration {
     public static final RegistryObject<Item> LIGHTSTONE_BLOCK_OVERWORLD_ITEM = fromBlock(LIGHTSTONE_BLOCK_OVERWORLD);
     public static final RegistryObject<Block> LIGHTSTONE_BLOCK_DEEPSLATE = BLOCKS.register("lightstone_block_deepslate", () -> new Block(Registration.LIGHTSTONE_PROPERTIES));
     public static final RegistryObject<Item> LIGHTSTONE_BLOCK_DEEPSLATE_ITEM = fromBlock(LIGHTSTONE_BLOCK_DEEPSLATE);
+
     public static final RegistryObject<Block> LIGHTSTONE_WOOD_LAMP = BLOCKS.register("lightstone_wood_lamp", () -> new Block(Registration.LIGHTSTONE_LAMP_PROPERTIES));
     public static final RegistryObject<Item> LIGHTSTONE_WOOD_LAMP_ITEM = fromBlock(LIGHTSTONE_WOOD_LAMP);
     public static final RegistryObject<Block> LIGHTSTONE_STONE_LAMP = BLOCKS.register("lightstone_stone_lamp", () -> new Block(Registration.LIGHTSTONE_LAMP_PROPERTIES));
     public static final RegistryObject<Item> LIGHTSTONE_STONE_LAMP_ITEM = fromBlock(LIGHTSTONE_STONE_LAMP);
+    public static final RegistryObject<Block> LIGHTSTONE_REFINED_WOOD_LAMP = BLOCKS.register("lightstone_refined_wood_lamp", () -> new Block(Registration.LIGHTSTONE_LAMP_PROPERTIES));
+    public static final RegistryObject<Item> LIGHTSTONE_REFINED_WOOD_LAMP_ITEM = fromBlock(LIGHTSTONE_REFINED_WOOD_LAMP);
+    public static final RegistryObject<Block> LIGHTSTONE_REFINED_STONE_LAMP = BLOCKS.register("lightstone_refined_stone_lamp", () -> new Block(Registration.LIGHTSTONE_LAMP_PROPERTIES));
+    public static final RegistryObject<Item> LIGHTSTONE_REFINED_STONE_LAMP_ITEM = fromBlock(LIGHTSTONE_REFINED_STONE_LAMP);
 
     public static final RegistryObject<Block> LIGHTSTONE_TORCH = BLOCKS.register("lightstone_torch", () -> new TorchBlock(BlockBehaviour.Properties.of(Material.DECORATION)
             .noCollission().noOcclusion().instabreak().lightLevel((p_50886_) -> {return 10;})
@@ -73,9 +78,6 @@ public class Registration {
     public static final RegistryObject<Block> WALL_LIGHTSTONE_TORCH = BLOCKS.register ("wall_lightstone_torch", () -> new WallTorchBlock((BlockBehaviour.Properties.of(Material.DECORATION)
             .noCollission().instabreak().lightLevel((p_152607_) -> {return 10;})
             .sound(SoundType.GLASS).dropsLike(Registration.LIGHTSTONE_TORCH.get())), ParticleTypes.FLAME));
-    /*public static final RegistryObject<StandingAndWallBlockItem> LIGHTSTONE_TORCH_ITEM = ITEMS.register("lightstone_torch_item", () ->
-            new StandingAndWallBlockItem(Registration.LIGHTSTONE_TORCH.get(), Registration.WALL_LIGHTSTONE_TORCH.get(),
-                    new Item.Properties().tab(ModSetup.ITEM_GROUP)));*/
     public static final RegistryObject<StandingAndWallBlockItem> LIGHTSTONE_TORCH_ITEM = ITEMS.register("lightstone_torch", () ->
             new StandingAndWallBlockItem(Registration.LIGHTSTONE_TORCH.get(), Registration.WALL_LIGHTSTONE_TORCH.get(),
                     new Item.Properties().tab(ModSetup.ITEM_GROUP)));
@@ -87,9 +89,6 @@ public class Registration {
     public static final RegistryObject<Block> WALL_LIGHTSTONE_REFINED_TORCH = BLOCKS.register ("wall_lightstone_refined_torch", () -> new WallTorchBlock((BlockBehaviour.Properties.of(Material.DECORATION)
             .noCollission().instabreak().lightLevel((p_152607_) -> {return 15;})
             .sound(SoundType.GLASS).dropsLike(Registration.LIGHTSTONE_REFINED_TORCH.get())), ParticleTypes.FLAME));
-    /*public static final RegistryObject<StandingAndWallBlockItem> LIGHTSTONE_REFINED_TORCH_ITEM = ITEMS.register("lightstone_refined_torch_item", () ->
-            new StandingAndWallBlockItem(Registration.LIGHTSTONE_REFINED_TORCH.get(), Registration.WALL_LIGHTSTONE_REFINED_TORCH.get(),
-                    new Item.Properties().tab(ModSetup.ITEM_GROUP)));*/
     public static final RegistryObject<StandingAndWallBlockItem> LIGHTSTONE_REFINED_TORCH_ITEM = ITEMS.register("lightstone_refined_torch", () ->
             new StandingAndWallBlockItem(Registration.LIGHTSTONE_REFINED_TORCH.get(), Registration.WALL_LIGHTSTONE_REFINED_TORCH.get(),
                     new Item.Properties().tab(ModSetup.ITEM_GROUP)));

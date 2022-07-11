@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "name": "lightstone_refined_wood_lamp",
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "kanohicraft:lightstone_refined_wood_lamp"
+        }
+      ]
+    }
+  ]
+}

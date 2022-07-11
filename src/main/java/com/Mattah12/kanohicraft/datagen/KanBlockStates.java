@@ -35,11 +35,12 @@ public class KanBlockStates extends BlockStateProvider {
 
         simpleBlock(Registration.LIGHTSTONE_WOOD_LAMP.get());
         simpleBlock(Registration.LIGHTSTONE_STONE_LAMP.get());
+        simpleBlock(Registration.LIGHTSTONE_REFINED_WOOD_LAMP.get());
+        simpleBlock(Registration.LIGHTSTONE_REFINED_STONE_LAMP.get());
 
         torchBlock(Registration.LIGHTSTONE_TORCH.get(), (Registration.WALL_LIGHTSTONE_TORCH.get()));
         torchBlock(Registration.LIGHTSTONE_REFINED_TORCH.get(), (Registration.WALL_LIGHTSTONE_REFINED_TORCH.get()));
-        //torchBlock(Registration.WALL_LIGHTSTONE_TORCH.get(), (Registration.WALL_LIGHTSTONE_REFINED_TORCH.get()));
-        //torchBlock(Registration.WALL_LIGHTSTONE_REFINED_TORCH.get());
+
     }
 
 

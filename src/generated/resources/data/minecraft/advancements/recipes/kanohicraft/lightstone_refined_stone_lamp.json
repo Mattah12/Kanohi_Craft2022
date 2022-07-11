@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:lightstone_refined_stone_lamp"
+    ]
+  },
+  "criteria": {
+    "lighstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kanohicraft:lightstone"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:lightstone_refined_stone_lamp"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "lighstone",
+      "has_the_recipe"
+    ]
+  ]
+}

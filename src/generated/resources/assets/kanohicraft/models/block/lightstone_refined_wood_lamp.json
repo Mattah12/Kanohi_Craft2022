@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "kanohicraft:block/lightstone_refined_wood_lamp"
+  }
+}

@@ -24,6 +24,8 @@ public class KanLootTables extends BaseLootTableProvider {
         lootTables.put(Registration.LIGHTSTONE_BLOCK_DEEPSLATE.get(), createSilkTouchTable("lightstone_block_deepslate", Registration.LIGHTSTONE_BLOCK_DEEPSLATE.get(), Registration.LIGHTSTONE.get(), 1, 4));
         lootTables.put(Registration.LIGHTSTONE_WOOD_LAMP.get(), createSimpleTable("lightstone_wood_lamp", Registration.LIGHTSTONE_WOOD_LAMP.get()));
         lootTables.put(Registration.LIGHTSTONE_STONE_LAMP.get(),createSimpleTable("lightstone_stone_lamp", Registration.LIGHTSTONE_STONE_LAMP.get()));
+        lootTables.put(Registration.LIGHTSTONE_REFINED_WOOD_LAMP.get(), createSimpleTable("lightstone_refined_wood_lamp", Registration.LIGHTSTONE_REFINED_WOOD_LAMP.get()));
+        lootTables.put(Registration.LIGHTSTONE_REFINED_STONE_LAMP.get(),createSimpleTable("lightstone_refined_stone_lamp", Registration.LIGHTSTONE_REFINED_STONE_LAMP.get()));
         lootTables.put(Registration.LIGHTSTONE_TORCH.get(), createItemTable("lightstone_torch", Registration.LIGHTSTONE_TORCH_ITEM.get()));
         lootTables.put(Registration.LIGHTSTONE_REFINED_TORCH.get(), createItemTable("lightstone_refined_torch", Registration.LIGHTSTONE_REFINED_TORCH_ITEM.get()));
         lootTables.put(Registration.WALL_LIGHTSTONE_TORCH.get(), createItemTable("wall_lightstone_torch", Registration.LIGHTSTONE_TORCH_ITEM.get()));

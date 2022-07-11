@@ -3,6 +3,10 @@
   "values": [
     "kanohicraft:lightstone_block_deepslate",
     "kanohicraft:lightstone_block_overworld",
+    "kanohicraft:lightstone_wood_lamp",
+    "kanohicraft:lightstone_stone_lamp",
+    "kanohicraft:lightstone_refined_wood_lamp",
+    "kanohicraft:lightstone_refined_stone_lamp",
     "kanohicraft:lightstone_torch",
     "kanohicraft:lightstone_refined_torch",
     "kanohicraft:wall_lightstone_torch",

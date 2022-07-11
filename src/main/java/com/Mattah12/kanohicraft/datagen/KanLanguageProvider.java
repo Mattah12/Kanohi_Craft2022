@@ -37,6 +37,8 @@ public class KanLanguageProvider extends LanguageProvider {
         add(Registration.LIGHTSTONE_BLOCK_DEEPSLATE.get(), "Lightstone Deposit");
         add(Registration.LIGHTSTONE_WOOD_LAMP.get(), "Wooden Lightstone Lamp");
         add(Registration.LIGHTSTONE_STONE_LAMP.get(), "Stone Lightstone Lamp");
+        add(Registration.LIGHTSTONE_REFINED_WOOD_LAMP.get(), "Refined Wooden Lightstone Lamp");
+        add(Registration.LIGHTSTONE_REFINED_STONE_LAMP.get(), "Refined Stone Lightstone Lamp");
         add(Registration.LIGHTSTONE_TORCH.get(), "Lightstone Torch");
         add(Registration.LIGHTSTONE_REFINED_TORCH.get(), "Refined Lightstone Torch");
 

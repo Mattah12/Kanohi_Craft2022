@@ -18,6 +18,8 @@ public class ClientSetup {
         ItemBlockRenderTypes.setRenderLayer(Registration.LIGHTSTONE_BLOCK_DEEPSLATE.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(Registration.LIGHTSTONE_WOOD_LAMP.get(),RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(Registration.LIGHTSTONE_STONE_LAMP.get(),RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(Registration.LIGHTSTONE_REFINED_WOOD_LAMP.get(),RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(Registration.LIGHTSTONE_REFINED_STONE_LAMP.get(),RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(Registration.LIGHTSTONE_TORCH.get(),RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(Registration.WALL_LIGHTSTONE_TORCH.get(),RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(Registration.LIGHTSTONE_REFINED_TORCH.get(),RenderType.cutout());

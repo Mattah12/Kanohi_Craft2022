@@ -26,13 +26,11 @@ public class KanItemModels extends ItemModelProvider {
         withExistingParent(Registration.LIGHTSTONE_BLOCK_DEEPSLATE_ITEM.get().getRegistryName().getPath(), modLoc("block/lightstone_block_deepslate"));
         withExistingParent(Registration.LIGHTSTONE_WOOD_LAMP_ITEM.get().getRegistryName().getPath(), modLoc("block/lightstone_wood_lamp"));
         withExistingParent(Registration.LIGHTSTONE_STONE_LAMP_ITEM.get().getRegistryName().getPath(), modLoc("block/lightstone_stone_lamp"));
+        withExistingParent(Registration.LIGHTSTONE_REFINED_WOOD_LAMP_ITEM.get().getRegistryName().getPath(), modLoc("block/lightstone_refined_wood_lamp"));
+        withExistingParent(Registration.LIGHTSTONE_REFINED_STONE_LAMP_ITEM.get().getRegistryName().getPath(), modLoc("block/lightstone_refined_stone_lamp"));
 
-        //withExistingParent(Registration.LIGHTSTONE_TORCH_ITEM.get().getRegistryName().getPath(),modLoc("block/lightstone_torch"));
-        //withExistingParent(Registration.LIGHTSTONE_REFINED_TORCH_ITEM.get().getRegistryName().getPath(),modLoc("block/lightstone_refined_torch"));
         torchItem(Registration.LIGHTSTONE_TORCH.get());
         torchItem(Registration.LIGHTSTONE_REFINED_TORCH.get());
-
-
 
         singleTexture(Registration.PROTODERMIS_RAW.get().getRegistryName().getPath(),
                 mcLoc("item/generated"),
