@@ -100,6 +100,12 @@ public class Registration {
     public static final RegistryObject<MenuType<ProtoGenContainer>> PROTOGEN_CONTAINER = CONTAINERS.register("",
             () -> IForgeMenuType.create((windowId, inv, data) -> new ProtoGenContainer(windowId, data.readBlockPos(), inv, inv.player)));
 
+    public static final RegistryObject<ProtoGenBlock> FOUNDRY = BLOCKS.register("foundry", Foundry::new);
+    public static final RegistryObject<Item> FOUNDRY_ITEM = fromBlock(FOUNDRY);
+    public static final RegistryObject<BlockEntityType<ProtoGenBE>> FOUNDRY_BE = BLOCK_ENTITIES.register("foundry", () -> BlockEntityType.Builder.of(FoundryBE::new, FOUNDRY.get()).build(null));
+    public static final RegistryObject<MenuType<ProtoGenContainer>> FOUNDRY_CONTAINER = CONTAINERS.register("",
+            () -> IForgeMenuType.create((windowId, inv, data) -> new ProtoGenContainer(windowId, data.readBlockPos(), inv, inv.player)));
+
 
     public static final RegistryObject<Item> PROTODERMIS_RAW = ITEMS.register("raw_protodermis", () -> new Item(ITEM_PROPERTIES));
     public static final RegistryObject<Item> PROTODERMIS_INGOT = ITEMS.register("protodermis_ingot", () -> new Item(ITEM_PROPERTIES));
