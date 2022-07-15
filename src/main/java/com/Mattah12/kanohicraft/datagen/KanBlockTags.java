@@ -28,7 +28,8 @@ public class KanBlockTags extends BlockTagsProvider {
                 .add(Registration.LIGHTSTONE_WOOD_LAMP.get())
                 .add(Registration.LIGHTSTONE_STONE_LAMP.get())
                 .add(Registration.LIGHTSTONE_REFINED_WOOD_LAMP.get())
-                .add(Registration.LIGHTSTONE_REFINED_STONE_LAMP.get());
+                .add(Registration.LIGHTSTONE_REFINED_STONE_LAMP.get())
+                .add(Registration.FOUNDRY.get());
         tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(Registration.LIGHTSTONE_WOOD_LAMP.get())
                 .add(Registration.LIGHTSTONE_STONE_LAMP.get())
@@ -42,7 +43,8 @@ public class KanBlockTags extends BlockTagsProvider {
                 .add(Registration.PROTODERMIS_ORE_NETHER.get())
                 .add(Registration.PROTODERMIS_ORE_END.get())
                 .add(Registration.PROTODERMIS_ORE_DEEPSLATE.get())
-                .add(Registration.PROTODERMIS_BLOCK.get());
+                .add(Registration.PROTODERMIS_BLOCK.get())
+                .add(Registration.FOUNDRY.get());
         tag(Tags.Blocks.ORES)
                 .add(Registration.PROTODERMIS_ORE_OVERWORLD.get())
                 .add(Registration.PROTODERMIS_ORE_NETHER.get())

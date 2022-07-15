@@ -42,6 +42,8 @@ public class KanLanguageProvider extends LanguageProvider {
         add(Registration.LIGHTSTONE_TORCH.get(), "Lightstone Torch");
         add(Registration.LIGHTSTONE_REFINED_TORCH.get(), "Refined Lightstone Torch");
 
+        add(Registration.FOUNDRY.get(),"Foundry");
+
 
         add(Registration.MASK_HAU.get(), "Kanohi Hau: Mask of Shielding");
         add(Registration.MASK_MIRU.get(), "Kanohi Miru: Mask of Levitation");

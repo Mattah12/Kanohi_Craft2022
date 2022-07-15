@@ -48,6 +48,17 @@ public class KanRecipes extends RecipeProvider {
                 .unlockedBy("protodermis", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.PROTODERMIS_INGOT.get()))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(Registration.FOUNDRY.get())
+                .pattern("xyx")
+                .pattern("xxx")
+                .pattern("xzx")
+                .define('x', Registration.PROTODERMIS_INGOT.get())
+                .define('y', Blocks.CAULDRON)
+                .define('z',Blocks.FURNACE)
+                .group("kanohicraft")
+                .unlockedBy("protodermis", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.PROTODERMIS_INGOT.get()))
+                .save(consumer);
+
         ShapedRecipeBuilder.shaped(Registration.PROTODERMIS_BLOCK.get())
                 .pattern("xxx")
                 .pattern("xxx")

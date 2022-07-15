@@ -11,6 +11,7 @@ public class ClientSetup {
     public static void init(FMLClientSetupEvent event){
         event.enqueueWork(() -> {
             MenuScreens.register(Registration.PROTOGEN_CONTAINER.get(), ProtoGenScreen::new);
+            MenuScreens.register(Registration.FOUNDRY_CONTAINER.get(), FoundryScreen::new);
 
         });
 
