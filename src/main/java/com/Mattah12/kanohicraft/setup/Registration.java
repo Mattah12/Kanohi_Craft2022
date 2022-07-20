@@ -1,9 +1,8 @@
 package com.Mattah12.kanohicraft.setup;
 
 import com.Mattah12.kanohicraft.KanohiCraft;
-import com.Mattah12.kanohicraft.blocks.ProtoGenBE;
-import com.Mattah12.kanohicraft.blocks.ProtoGenBlock;
-import com.Mattah12.kanohicraft.blocks.ProtoGenContainer;
+import com.Mattah12.kanohicraft.blocks.*;
+import com.Mattah12.kanohicraft.items.FireStaffItem;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.ParticleTypes;
@@ -27,6 +26,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import static com.Mattah12.kanohicraft.setup.ModSetup.ITEM_GROUP;
+
 public class Registration {
 
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, KanohiCraft.MODID);
@@ -47,7 +48,7 @@ public class Registration {
     public static final BlockBehaviour.Properties METAL_PROPERTIES = BlockBehaviour.Properties.of(Material.METAL).strength(3f).requiresCorrectToolForDrops();
     public static final BlockBehaviour.Properties LIGHTSTONE_PROPERTIES = BlockBehaviour.Properties.of(Material.STONE).strength(2f).requiresCorrectToolForDrops().noOcclusion().lightLevel(s -> 8);
     public static final BlockBehaviour.Properties LIGHTSTONE_LAMP_PROPERTIES = BlockBehaviour.Properties.of(Material.GLASS).strength(2f).requiresCorrectToolForDrops().noOcclusion().lightLevel(s -> 15);
-    public static final Item.Properties ITEM_PROPERTIES = new Item.Properties().tab(ModSetup.ITEM_GROUP);
+    public static final Item.Properties ITEM_PROPERTIES = new Item.Properties().tab(ITEM_GROUP);
 
     public static final RegistryObject<Block> PROTODERMIS_ORE_OVERWORLD = BLOCKS.register("protodermis_ore_overworld", () -> new Block(Registration.STONE_PROPERTIES));
     public static final RegistryObject<Item> PROTODERMIS_ORE_OVERWORLD_ITEM = fromBlock(PROTODERMIS_ORE_OVERWORLD);
@@ -80,7 +81,7 @@ public class Registration {
             .sound(SoundType.GLASS).dropsLike(Registration.LIGHTSTONE_TORCH.get())), ParticleTypes.FLAME));
     public static final RegistryObject<StandingAndWallBlockItem> LIGHTSTONE_TORCH_ITEM = ITEMS.register("lightstone_torch", () ->
             new StandingAndWallBlockItem(Registration.LIGHTSTONE_TORCH.get(), Registration.WALL_LIGHTSTONE_TORCH.get(),
-                    new Item.Properties().tab(ModSetup.ITEM_GROUP)));
+                    new Item.Properties().tab(ITEM_GROUP)));
 
 
     public static final RegistryObject<Block> LIGHTSTONE_REFINED_TORCH = BLOCKS.register("lightstone_refined_torch", () -> new TorchBlock(BlockBehaviour.Properties.of(Material.DECORATION)
@@ -91,7 +92,7 @@ public class Registration {
             .sound(SoundType.GLASS).dropsLike(Registration.LIGHTSTONE_REFINED_TORCH.get())), ParticleTypes.FLAME));
     public static final RegistryObject<StandingAndWallBlockItem> LIGHTSTONE_REFINED_TORCH_ITEM = ITEMS.register("lightstone_refined_torch", () ->
             new StandingAndWallBlockItem(Registration.LIGHTSTONE_REFINED_TORCH.get(), Registration.WALL_LIGHTSTONE_REFINED_TORCH.get(),
-                    new Item.Properties().tab(ModSetup.ITEM_GROUP)));
+                    new Item.Properties().tab(ITEM_GROUP)));
 
 
     public static final RegistryObject<ProtoGenBlock> PROTOGEN = BLOCKS.register("protogen", ProtoGenBlock::new);
@@ -100,11 +101,11 @@ public class Registration {
     public static final RegistryObject<MenuType<ProtoGenContainer>> PROTOGEN_CONTAINER = CONTAINERS.register("",
             () -> IForgeMenuType.create((windowId, inv, data) -> new ProtoGenContainer(windowId, data.readBlockPos(), inv, inv.player)));
 
-    public static final RegistryObject<ProtoGenBlock> FOUNDRY = BLOCKS.register("foundry", Foundry::new);
+    public static final RegistryObject<FoundryBlock> FOUNDRY = BLOCKS.register("foundry", FoundryBlock::new);
     public static final RegistryObject<Item> FOUNDRY_ITEM = fromBlock(FOUNDRY);
-    public static final RegistryObject<BlockEntityType<ProtoGenBE>> FOUNDRY_BE = BLOCK_ENTITIES.register("foundry", () -> BlockEntityType.Builder.of(FoundryBE::new, FOUNDRY.get()).build(null));
-    public static final RegistryObject<MenuType<ProtoGenContainer>> FOUNDRY_CONTAINER = CONTAINERS.register("",
-            () -> IForgeMenuType.create((windowId, inv, data) -> new ProtoGenContainer(windowId, data.readBlockPos(), inv, inv.player)));
+    public static final RegistryObject<BlockEntityType<FoundryBE>> FOUNDRY_BE = BLOCK_ENTITIES.register("foundry", () -> BlockEntityType.Builder.of(FoundryBE::new, FOUNDRY.get()).build(null));
+    //public static final RegistryObject<MenuType<ProtoGenContainer>> FOUNDRY_CONTAINER = CONTAINERS.register("",
+    //        () -> IForgeMenuType.create((windowId, inv, data) -> new ProtoGenContainer(windowId, data.readBlockPos(), inv, inv.player)));
 
 
     public static final RegistryObject<Item> PROTODERMIS_RAW = ITEMS.register("raw_protodermis", () -> new Item(ITEM_PROPERTIES));
@@ -114,6 +115,11 @@ public class Registration {
     public static final RegistryObject<Item> PROTODERMIS_BLOCK_ITEM = fromBlock(PROTODERMIS_BLOCK);
 
     public static final RegistryObject<Item> LIGHTSTONE = ITEMS.register("lightstone", () -> new Item(ITEM_PROPERTIES));
+
+    public static final RegistryObject<Item> FIRE_STAFF = ITEMS.register("fire_staff", () -> new FireStaffItem(new Item.Properties()
+            .tab(ITEM_GROUP)
+            .stacksTo(1)
+            .durability(32)));
 
     public static final RegistryObject<Item> MASK_HAU = ITEMS.register("mask_hau", () -> new Item(ITEM_PROPERTIES));
     public static final RegistryObject<Item> MASK_MIRU = ITEMS.register("mask_miru", () -> new Item(ITEM_PROPERTIES));
@@ -126,8 +132,10 @@ public class Registration {
     public static final Tags.IOptionalNamedTag<Block> PROTODERMIS_ORE = BlockTags.createOptional(new ResourceLocation(KanohiCraft.MODID, "protodermis_ore"));
     public static final Tags.IOptionalNamedTag<Item> PROTODERMIS_ORE_ITEM = ItemTags.createOptional(new ResourceLocation(KanohiCraft.MODID, "protodermis_ore"));
     public static final Tags.IOptionalNamedTag<Item> KANOHI = ItemTags.createOptional(new ResourceLocation(KanohiCraft.MODID,"kanohi"));
+    public static final Tags.IOptionalNamedTag<Item> KANOKA = ItemTags.createOptional(new ResourceLocation(KanohiCraft.MODID,"kanoka"));
     public static final Tags.IOptionalNamedTag<Item> LIGHTSTONE_ITEMS = ItemTags.createOptional(new ResourceLocation(KanohiCraft.MODID,"lightstone_item"));
     public static final Tags.IOptionalNamedTag<Block> LIGHTSTONE_BLOCKS = BlockTags.createOptional(new ResourceLocation(KanohiCraft.MODID,"lightstone_block"));
+    public static final Tags.IOptionalNamedTag<Item> FIRE_STAFF_ITEMS = ItemTags.createOptional(new ResourceLocation(KanohiCraft.MODID,"fire_staff_items"));
 
 
     // Conveniance function: Take a RegistryObject<Block> and make a corresponding RegistryObject<Item> from it

@@ -31,7 +31,7 @@ public class KanLootTables extends BaseLootTableProvider {
         lootTables.put(Registration.WALL_LIGHTSTONE_TORCH.get(), createItemTable("wall_lightstone_torch", Registration.LIGHTSTONE_TORCH_ITEM.get()));
         lootTables.put(Registration.WALL_LIGHTSTONE_REFINED_TORCH.get(),createItemTable("wall_lightstone_refined_torch", Registration.LIGHTSTONE_REFINED_TORCH_ITEM.get()));
 
-        lootTables.put(Registration.FOUNDRY.get(), createStandardTable("foundry", Registration.FOUNDRY.get(), Registration.FOUNDRY_BE.get()));
+        //lootTables.put(Registration.FOUNDRY.get(), createStandardTable("foundry", Registration.FOUNDRY.get(), Registration.FOUNDRY_BE.get()));
 
 
 

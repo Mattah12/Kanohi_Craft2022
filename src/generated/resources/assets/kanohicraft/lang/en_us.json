@@ -1,4 +1,5 @@
 {
+  "block.kanohicraft.foundry": "Foundry",
   "block.kanohicraft.lightstone_block_deepslate": "Lightstone Deposit",
   "block.kanohicraft.lightstone_block_overworld": "Lightstone Deposit",
   "block.kanohicraft.lightstone_refined_stone_lamp": "Refined Stone Lightstone Lamp",
@@ -13,6 +14,7 @@
   "block.kanohicraft.protodermis_ore_nether": "Protodermis Ore",
   "block.kanohicraft.protodermis_ore_overworld": "Protodermis Ore",
   "block.kanohicraft.protogen": "Protodermis Generator",
+  "item.kanohicraft.fire_staff": "Fire Staff",
   "item.kanohicraft.lightstone": "Lightstone",
   "item.kanohicraft.mask_akaku": "Kanohi Akaku: Mask of X-Ray Vision",
   "item.kanohicraft.mask_hau": "Kanohi Hau: Mask of Shielding",

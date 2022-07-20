@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "kanohicraft",
+  "pattern": [
+    "xyx",
+    "xxx",
+    "xzx"
+  ],
+  "key": {
+    "x": {
+      "item": "kanohicraft:protodermis_ingot"
+    },
+    "y": {
+      "item": "minecraft:cauldron"
+    },
+    "z": {
+      "item": "minecraft:furnace"
+    }
+  },
+  "result": {
+    "item": "kanohicraft:foundry"
+  }
+}

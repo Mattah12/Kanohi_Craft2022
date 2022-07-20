@@ -12,7 +12,7 @@ import net.minecraft.world.entity.player.Inventory;
 
 public class FoundryScreen extends AbstractContainerScreen<ProtoGenContainer> {
 
-    private final ResourceLocation GUI = new ResourceLocation(KanohiCraft.MODID, "textures/gui/protogen_gui.png");
+    private final ResourceLocation GUI = new ResourceLocation(KanohiCraft.MODID, "textures/gui/foundry_gui.png");
 
         public FoundryScreen(ProtoGenContainer container, Inventory inv, Component name) {
         super(container, inv, name);
@@ -25,10 +25,10 @@ public class FoundryScreen extends AbstractContainerScreen<ProtoGenContainer> {
         this.renderTooltip(matrixStack, mouseX, mouseY);
     }
 
-    @Override
+  /*  @Override
     protected void renderLabels(PoseStack matrixStack, int mouseX, int mouseY) {
         drawString(matrixStack, Minecraft.getInstance().font, "Energy: " + menu.getEnergy(), 10, 55, 0xffffff);
-    }
+    }*/
 
     @Override
     protected void renderBg(PoseStack matrixStack, float partialTicks, int mouseX, int mouseY) {

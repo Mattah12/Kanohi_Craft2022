@@ -1,176 +1,132 @@
 package com.Mattah12.kanohicraft.blocks;
 
 import com.Mattah12.kanohicraft.setup.Registration;
-import com.Mattah12.kanohicraft.varia.CustomEnergyStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.world.Containers;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.energy.CapabilityEnergy;
-import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Random;
 
-public class FoundryBE extends BlockEntity {
-
-    public static final int PROTOGEN_CAPACITY = 10000; // Max capacity
-    public static final int PROTOGEN_GENERATE = 60;    // Generation per tick
-    public static final int PROTOGEN_SEND = 200;       // Power to send out per tick
-
-    // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
-    private final ItemStackHandler itemHandler = createHandler();
-    private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> itemHandler);
-
-    private final CustomEnergyStorage energyStorage = createEnergy();
-    private final LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
-
-    private int counter;
-
-    public FoundryBE(BlockPos pos, BlockState state) {
-        super(Registration.PROTOGEN_BE.get(), pos, state);
-    }
-
-
-    @Override
-    public void setRemoved() {
-        super.setRemoved();
-        handler.invalidate();
-        energy.invalidate();
-    }
-
-    public void tickServer() {
-        if (counter > 0) {
-            energyStorage.addEnergy(PROTOGEN_GENERATE);
-            counter--;
+public class FoundryBE extends BlockEntity implements MenuProvider {
+    private final ItemStackHandler itemHandler = new ItemStackHandler(8) {
+        @Override
+        protected void onContentsChanged(int slot) {
             setChanged();
         }
+    };
 
-        if (counter <= 0) {
-            ItemStack stack = itemHandler.getStackInSlot(0);
-            int burnTime = ForgeHooks.getBurnTime(stack, RecipeType.SMELTING);
-            if (burnTime > 0) {
-                itemHandler.extractItem(0, 1, false);
-                counter = burnTime;
-                setChanged();
-            }
-        }
+    private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
-        BlockState blockState = level.getBlockState(worldPosition);
-        if (blockState.getValue(BlockStateProperties.POWERED) != counter > 0) {
-            level.setBlock(worldPosition, blockState.setValue(BlockStateProperties.POWERED, counter > 0),
-                    Block.UPDATE_ALL);
-        }
-
-        sendOutPower();
+    public FoundryBE(BlockPos pos, BlockState state) {
+        super(Registration.FOUNDRY_BE.get(), pos, state);
     }
 
-        private void sendOutPower() {
-        AtomicInteger capacity = new AtomicInteger(energyStorage.getEnergyStored());
-        if (capacity.get() > 0) {
-            BlockEntity be = level.getBlockEntity(worldPosition.relative(Direction.EAST));
-                if (be != null) {
-                    boolean doContinue = be.getCapability(CapabilityEnergy.ENERGY, Direction.EAST.getOpposite()).map(handler -> {
-                                if (handler.canReceive()) {
-                                    int received = handler.receiveEnergy(Math.min(capacity.get(), PROTOGEN_SEND), false);
-                                    capacity.addAndGet(-received);
-                                    energyStorage.consumeEnergy(received);
-                                    setChanged();
-                                    return capacity.get() > 0;
-                                } else {
-                                    return true;
-                                }
-                            }
-                    ).orElse(true);
-                    if (!doContinue) {
-                        return;
-                    }
-                }
-            }
-        }
-
-
+    /*public FoundryBE(BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState) {
+        super(pType, pWorldPosition, pBlockState);
+    }*/
 
     @Override
-    public void load(CompoundTag tag) {
-        if (tag.contains("Inventory")) {
-            itemHandler.deserializeNBT(tag.getCompound("Inventory"));
-        }
-        if (tag.contains("Energy")) {
-            energyStorage.deserializeNBT(tag.get("Energy"));
-        }
-        if (tag.contains("Info")) {
-            counter = tag.getCompound("Info").getInt("Counter");
-        }
-        super.load(tag);
+    public Component getDisplayName() {
+        return new TextComponent("Foundry");
     }
 
+    @Nullable
     @Override
-    public void saveAdditional(CompoundTag tag) {
-        tag.put("Inventory", itemHandler.serializeNBT());
-        tag.put("Energy", energyStorage.serializeNBT());
-
-        CompoundTag infoTag = new CompoundTag();
-        infoTag.putInt("Counter", counter);
-        tag.put("Info", infoTag);
-    }
-
-    private ItemStackHandler createHandler() {
-        return new ItemStackHandler(1) {
-
-            @Override
-            protected void onContentsChanged(int slot) {
-                // To make sure the TE persists when the chunk is saved later we need to
-                // mark it dirty every time the item handler changes
-                setChanged();
-            }
-
-            @Override
-            public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-                return ForgeHooks.getBurnTime(stack, RecipeType.SMELTING) > 0;
-            }
-
-            @Nonnull
-            @Override
-            public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
-                if (ForgeHooks.getBurnTime(stack, RecipeType.SMELTING) <= 0) {
-                    return stack;
-                }
-                return super.insertItem(slot, stack, simulate);
-            }
-        };
-    }
-
-    private CustomEnergyStorage createEnergy() {
-        return new CustomEnergyStorage(PROTOGEN_CAPACITY, 0) {
-            @Override
-            protected void onEnergyChanged() {
-                setChanged();
-            }
-        };
+    public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
+        return null;
     }
 
     @Nonnull
     @Override
-    public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
+    public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @javax.annotation.Nullable Direction side) {
         if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-            return handler.cast();
+            return lazyItemHandler.cast();
         }
-        if (cap == CapabilityEnergy.ENERGY) {
-            return energy.cast();
-        }
+
         return super.getCapability(cap, side);
     }
+
+    @Override
+    public void onLoad() {
+        super.onLoad();
+        lazyItemHandler = LazyOptional.of(() -> itemHandler);
+    }
+
+    @Override
+    public void invalidateCaps() {
+        super.invalidateCaps();
+        lazyItemHandler.invalidate();
+    }
+
+    @Override
+    protected void saveAdditional(@NotNull CompoundTag tag) {
+        tag.put("inventory", itemHandler.serializeNBT());
+        super.saveAdditional(tag);
+    }
+
+    @Override
+    public void load(CompoundTag nbt) {
+        super.load(nbt);
+        itemHandler.deserializeNBT(nbt.getCompound("inventory"));
+    }
+
+    public void drops() {
+        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
+        for (int i = 0; i < itemHandler.getSlots(); i++) {
+            inventory.setItem(i, itemHandler.getStackInSlot(i));
+        }
+
+        Containers.dropContents(this.level, this.worldPosition, inventory);
+    }
+
+ /*   public static void tick(Level pLevel, BlockPos pPos, BlockState pState, FoundryBE pBlockEntity) {
+        if(hasRecipe(pBlockEntity) && hasNotReachedStackLimit(pBlockEntity)) {
+            craftItem(pBlockEntity);
+        }
+    }*/
+
+//    private static void craftItem(FoundryBE entity) {
+//        entity.itemHandler.extractItem(0, 1, false);
+//        entity.itemHandler.extractItem(1, 1, false);
+//        entity.itemHandler.getStackInSlot(2).hurt(1, new Random(), null);
+//
+//        entity.itemHandler.setStackInSlot(0, new ItemStack(ModItems.CITRINE.get(),
+//                entity.itemHandler.getStackInSlot(3).getCount() + 1));
+//    }
+
+/*    private static boolean hasRecipe(FoundryBE entity) {
+        boolean hasItemInWaterSlot = PotionUtils.getPotion(entity.itemHandler.getStackInSlot(0)) == Potions.WATER;
+        boolean hasItemInFirstSlot = entity.itemHandler.getStackInSlot(1).getItem() == ModItems.RAW_CITRINE.get();
+        boolean hasItemInSecondSlot = entity.itemHandler.getStackInSlot(2).getItem() == ModItems.GEM_CUTTER_TOOL.get();
+
+        return hasItemInWaterSlot && hasItemInFirstSlot && hasItemInSecondSlot;
+    }*/
+
+   /* private static boolean hasNotReachedStackLimit(FoundryBE entity) {
+        return entity.itemHandler.getStackInSlot(3).getCount() < entity.itemHandler.getStackInSlot(3).getMaxStackSize();
+    }*/
+
+
 }

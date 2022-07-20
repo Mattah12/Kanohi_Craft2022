@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "kanohicraft",
+  "pattern": [
+    "  x",
+    " y ",
+    "z  "
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:flint_and_steel"
+    },
+    "y": {
+      "item": "kanohicraft:protodermis_ingot"
+    },
+    "z": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "kanohicraft:fire_staff"
+  }
+}

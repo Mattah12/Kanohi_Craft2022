@@ -1,6 +1,7 @@
 package com.Mattah12.kanohicraft.datagen;
 
 import com.Mattah12.kanohicraft.KanohiCraft;
+import com.Mattah12.kanohicraft.blocks.FoundryBlock;
 import com.Mattah12.kanohicraft.blocks.ProtoGenBlock;
 import com.Mattah12.kanohicraft.setup.ModSetup;
 import com.Mattah12.kanohicraft.setup.Registration;
@@ -42,7 +43,11 @@ public class KanLanguageProvider extends LanguageProvider {
         add(Registration.LIGHTSTONE_TORCH.get(), "Lightstone Torch");
         add(Registration.LIGHTSTONE_REFINED_TORCH.get(), "Refined Lightstone Torch");
 
+        //add(FoundryBlock.MESSAGE_FOUNDRY, "Foundry");
+        //add(FoundryBlock.SCREEN_KANOHI_FOUNDRY, "Foundry");
+
         add(Registration.FOUNDRY.get(),"Foundry");
+        add(Registration.FIRE_STAFF.get(), "Fire Staff");
 
 
         add(Registration.MASK_HAU.get(), "Kanohi Hau: Mask of Shielding");
