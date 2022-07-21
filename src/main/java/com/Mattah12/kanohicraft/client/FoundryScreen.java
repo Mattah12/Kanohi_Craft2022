@@ -6,35 +6,39 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class FoundryScreen extends AbstractContainerScreen<ProtoGenContainer> {
+public class FoundryScreen extends AbstractContainerScreen<FoundryMenu> {
 
-    private final ResourceLocation GUI = new ResourceLocation(KanohiCraft.MODID, "textures/gui/foundry_gui.png");
-
-        public FoundryScreen(ProtoGenContainer container, Inventory inv, Component name) {
-        super(container, inv, name);
+    private static final ResourceLocation TEXTURE =
+            new ResourceLocation(KanohiCraft.MODID, "textures/gui/foundry_gui.png");
+    public FoundryScreen(FoundryMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
+        super(pMenu, pPlayerInventory, pTitle);
     }
 
     @Override
-    public void render(PoseStack matrixStack, int mouseX, int mouseY, float partialTicks) {
-        this.renderBackground(matrixStack);
-        super.render(matrixStack, mouseX, mouseY, partialTicks);
-        this.renderTooltip(matrixStack, mouseX, mouseY);
-    }
+    protected void renderBg(PoseStack pPoseStack, float pPartialTick, int pMouseX, int pMouseY) {
+        RenderSystem.setShader(GameRenderer::getPositionTexShader);
+        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+        RenderSystem.setShaderTexture(0, TEXTURE);
+        int x = (width - imageWidth) / 2;
+        int y = (height - imageHeight) / 2;
 
-  /*  @Override
-    protected void renderLabels(PoseStack matrixStack, int mouseX, int mouseY) {
-        drawString(matrixStack, Minecraft.getInstance().font, "Energy: " + menu.getEnergy(), 10, 55, 0xffffff);
-    }*/
+        this.blit(pPoseStack, x, y, 0, 0, imageWidth, imageHeight);
+
+    }
 
     @Override
-    protected void renderBg(PoseStack matrixStack, float partialTicks, int mouseX, int mouseY) {
-        RenderSystem.setShaderTexture(0, GUI);
-        int relX = (this.width - this.imageWidth) / 2;
-        int relY = (this.height - this.imageHeight) / 2;
-        this.blit(matrixStack, relX, relY, 0, 0, this.imageWidth, this.imageHeight);
+    public void render(PoseStack pPoseStack, int mouseX, int mouseY, float delta){
+        renderBackground(pPoseStack);
+        super.render(pPoseStack, mouseX, mouseY, delta);
+        renderTooltip(pPoseStack, mouseX, mouseY);
     }
+
+
+
 }

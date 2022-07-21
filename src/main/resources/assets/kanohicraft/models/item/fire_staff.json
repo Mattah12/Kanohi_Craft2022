@@ -5,7 +5,7 @@
 		"0": "kanohicraft:item/fire_staff",
 		"1": "kanohicraft:item/fire_staff_inner",
 		"2": "kanohicraft:item/fire_staff_effect",
-		"particle": "kanohicraft:item/fire_staff"
+		"particle": "kanohicraft:item/fire_staff_inner"
 	},
 	"elements": [
 		{
@@ -24,8 +24,8 @@
 		},
 		{
 			"name": "Inner",
-			"from": [7.82, 2.1, 5.75],
-			"to": [8.67, 3.1, 6.65],
+			"from": [7.845, 2.15, 5.825],
+			"to": [8.645, 3.05, 6.625],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8.2475, 2.325, 6.225]},
 			"faces": {
 				"north": {"uv": [0, 0, 16, 16], "texture": "#1"},
@@ -42,10 +42,10 @@
 			"to": [8.68, 3.1, 6.66],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8.2475, 2.325, 6.225]},
 			"faces": {
-				"north": {"uv": [6, 5, 8, 7], "texture": "#2"},
-				"east": {"uv": [6, 7, 8, 9], "texture": "#2"},
-				"south": {"uv": [6, 9, 8, 11], "texture": "#2"},
-				"west": {"uv": [6, 11, 8, 13], "texture": "#2"},
+				"north": {"uv": [11, 11, 13, 13], "texture": "#2"},
+				"east": {"uv": [13, 11, 15, 13], "texture": "#2"},
+				"south": {"uv": [13, 11, 15, 13], "texture": "#2"},
+				"west": {"uv": [11, 11, 13, 13], "texture": "#2"},
 				"up": {"uv": [0, 0, 1, 1], "texture": "#2"},
 				"down": {"uv": [0, 1, 1, 2], "texture": "#2"}
 			}
@@ -133,12 +133,13 @@
 			"scale": [2.5, 2.5, 2.5]
 		},
 		"firstperson_righthand": {
-			"translation": [-2.5, 19, 9.75],
-			"scale": [2.5, 2.5, 2.5]
+			"rotation": [-3, 0, -2],
+			"translation": [-4.25, 20, 9.75],
+			"scale": [2, 2, 2]
 		},
 		"firstperson_lefthand": {
-			"translation": [-1.25, 18, 8.75],
-			"scale": [2.5, 2.5, 2.5]
+			"translation": [-2.75, 20, 9.75],
+			"scale": [2, 2, 2]
 		},
 		"ground": {
 			"translation": [0, 15.25, 4.5],

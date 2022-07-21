@@ -1,5 +1,6 @@
 package com.Mattah12.kanohicraft.blocks;
 
+import com.Mattah12.kanohicraft.client.FoundryMenu;
 import com.Mattah12.kanohicraft.setup.Registration;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -55,7 +56,7 @@ public class FoundryBE extends BlockEntity implements MenuProvider {
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
-        return null;
+        return new FoundryMenu(pContainerId, pInventory, this);
     }
 
     @Nonnull
@@ -101,32 +102,32 @@ public class FoundryBE extends BlockEntity implements MenuProvider {
         Containers.dropContents(this.level, this.worldPosition, inventory);
     }
 
- /*   public static void tick(Level pLevel, BlockPos pPos, BlockState pState, FoundryBE pBlockEntity) {
+    public static void tick(Level pLevel, BlockPos pPos, BlockState pState, FoundryBE pBlockEntity) {
         if(hasRecipe(pBlockEntity) && hasNotReachedStackLimit(pBlockEntity)) {
             craftItem(pBlockEntity);
         }
-    }*/
+    }
 
-//    private static void craftItem(FoundryBE entity) {
-//        entity.itemHandler.extractItem(0, 1, false);
-//        entity.itemHandler.extractItem(1, 1, false);
-//        entity.itemHandler.getStackInSlot(2).hurt(1, new Random(), null);
-//
-//        entity.itemHandler.setStackInSlot(0, new ItemStack(ModItems.CITRINE.get(),
-//                entity.itemHandler.getStackInSlot(3).getCount() + 1));
-//    }
+    private static void craftItem(FoundryBE entity) {
+        entity.itemHandler.extractItem(1, 1, false);
+        entity.itemHandler.extractItem(2, 1, false);
+        entity.itemHandler.getStackInSlot(0).hurt(1, new Random(), null);
 
-/*    private static boolean hasRecipe(FoundryBE entity) {
-        boolean hasItemInWaterSlot = PotionUtils.getPotion(entity.itemHandler.getStackInSlot(0)) == Potions.WATER;
-        boolean hasItemInFirstSlot = entity.itemHandler.getStackInSlot(1).getItem() == ModItems.RAW_CITRINE.get();
-        boolean hasItemInSecondSlot = entity.itemHandler.getStackInSlot(2).getItem() == ModItems.GEM_CUTTER_TOOL.get();
+        entity.itemHandler.setStackInSlot(7, new ItemStack(Registration.FOUNDRY.get(),
+                entity.itemHandler.getStackInSlot(7).getCount() + 1));
+    }
 
-        return hasItemInWaterSlot && hasItemInFirstSlot && hasItemInSecondSlot;
-    }*/
+    private static boolean hasRecipe(FoundryBE entity) {
+        boolean hasItemInStaffSlot = entity.itemHandler.getStackInSlot(0).getItem() == Registration.FIRE_STAFF.get();
+        boolean hasItemInFirstSlot = entity.itemHandler.getStackInSlot(1).getItem() == Registration.PROTODERMIS_INGOT.get();
+        boolean hasItemInSecondSlot = entity.itemHandler.getStackInSlot(2).getItem() == Registration.LIGHTSTONE_TORCH_ITEM.get();
 
-   /* private static boolean hasNotReachedStackLimit(FoundryBE entity) {
-        return entity.itemHandler.getStackInSlot(3).getCount() < entity.itemHandler.getStackInSlot(3).getMaxStackSize();
-    }*/
+        return hasItemInStaffSlot && hasItemInFirstSlot && hasItemInSecondSlot;
+    }
+
+    private static boolean hasNotReachedStackLimit(FoundryBE entity) {
+        return entity.itemHandler.getStackInSlot(7).getCount() < entity.itemHandler.getStackInSlot(7).getMaxStackSize();
+    }
 
 
 }

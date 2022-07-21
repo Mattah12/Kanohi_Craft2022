@@ -9,7 +9,7 @@ public class ModSetup {
 
     public static final String TAB_NAME = "kanohicraft";
 
-    public static final CreativeModeTab ITEM_GROUP = new CreativeModeTab(TAB_NAME) {
+    public static final CreativeModeTab KANOHICRAFT_TAB = new CreativeModeTab(TAB_NAME) {
         @Override
         public ItemStack makeIcon() {return new ItemStack(Registration.MASK_HAU.get());}
     };

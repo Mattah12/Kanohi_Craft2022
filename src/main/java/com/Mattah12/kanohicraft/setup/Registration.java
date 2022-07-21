@@ -2,19 +2,21 @@ package com.Mattah12.kanohicraft.setup;
 
 import com.Mattah12.kanohicraft.KanohiCraft;
 import com.Mattah12.kanohicraft.blocks.*;
+import com.Mattah12.kanohicraft.client.FoundryMenu;
 import com.Mattah12.kanohicraft.items.FireStaffItem;
-import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.StandingAndWallBlockItem;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.TorchBlock;
+import net.minecraft.world.level.block.WallTorchBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -22,25 +24,34 @@ import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.network.IContainerFactory;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import static com.Mattah12.kanohicraft.setup.ModSetup.ITEM_GROUP;
+import static com.Mattah12.kanohicraft.setup.ModSetup.KANOHICRAFT_TAB;
 
 public class Registration {
 
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, KanohiCraft.MODID);
     private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, KanohiCraft.MODID);
     private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, KanohiCraft.MODID);
+    private static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(ForgeRegistries.CONTAINERS, KanohiCraft.MODID);
     private static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, KanohiCraft.MODID);
+
+    private static <T extends AbstractContainerMenu>RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory, String name){
+
+        return MENUS.register(name, () -> IForgeMenuType.create(factory));
+    }
 
     public static void init() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         BLOCKS.register(bus);
         ITEMS.register(bus);
         BLOCK_ENTITIES.register(bus);
+        MENUS.register(bus);
         CONTAINERS.register(bus);
+
     }
 
     // Some common properties for our blocks and items
@@ -48,7 +59,7 @@ public class Registration {
     public static final BlockBehaviour.Properties METAL_PROPERTIES = BlockBehaviour.Properties.of(Material.METAL).strength(3f).requiresCorrectToolForDrops();
     public static final BlockBehaviour.Properties LIGHTSTONE_PROPERTIES = BlockBehaviour.Properties.of(Material.STONE).strength(2f).requiresCorrectToolForDrops().noOcclusion().lightLevel(s -> 8);
     public static final BlockBehaviour.Properties LIGHTSTONE_LAMP_PROPERTIES = BlockBehaviour.Properties.of(Material.GLASS).strength(2f).requiresCorrectToolForDrops().noOcclusion().lightLevel(s -> 15);
-    public static final Item.Properties ITEM_PROPERTIES = new Item.Properties().tab(ITEM_GROUP);
+    public static final Item.Properties ITEM_PROPERTIES = new Item.Properties().tab(KANOHICRAFT_TAB);
 
     public static final RegistryObject<Block> PROTODERMIS_ORE_OVERWORLD = BLOCKS.register("protodermis_ore_overworld", () -> new Block(Registration.STONE_PROPERTIES));
     public static final RegistryObject<Item> PROTODERMIS_ORE_OVERWORLD_ITEM = fromBlock(PROTODERMIS_ORE_OVERWORLD);
@@ -81,7 +92,7 @@ public class Registration {
             .sound(SoundType.GLASS).dropsLike(Registration.LIGHTSTONE_TORCH.get())), ParticleTypes.FLAME));
     public static final RegistryObject<StandingAndWallBlockItem> LIGHTSTONE_TORCH_ITEM = ITEMS.register("lightstone_torch", () ->
             new StandingAndWallBlockItem(Registration.LIGHTSTONE_TORCH.get(), Registration.WALL_LIGHTSTONE_TORCH.get(),
-                    new Item.Properties().tab(ITEM_GROUP)));
+                    new Item.Properties().tab(KANOHICRAFT_TAB)));
 
 
     public static final RegistryObject<Block> LIGHTSTONE_REFINED_TORCH = BLOCKS.register("lightstone_refined_torch", () -> new TorchBlock(BlockBehaviour.Properties.of(Material.DECORATION)
@@ -92,20 +103,24 @@ public class Registration {
             .sound(SoundType.GLASS).dropsLike(Registration.LIGHTSTONE_REFINED_TORCH.get())), ParticleTypes.FLAME));
     public static final RegistryObject<StandingAndWallBlockItem> LIGHTSTONE_REFINED_TORCH_ITEM = ITEMS.register("lightstone_refined_torch", () ->
             new StandingAndWallBlockItem(Registration.LIGHTSTONE_REFINED_TORCH.get(), Registration.WALL_LIGHTSTONE_REFINED_TORCH.get(),
-                    new Item.Properties().tab(ITEM_GROUP)));
+                    new Item.Properties().tab(KANOHICRAFT_TAB)));
 
 
     public static final RegistryObject<ProtoGenBlock> PROTOGEN = BLOCKS.register("protogen", ProtoGenBlock::new);
     public static final RegistryObject<Item> PROTOGEN_ITEM = fromBlock(PROTOGEN);
-    public static final RegistryObject<BlockEntityType<ProtoGenBE>> PROTOGEN_BE = BLOCK_ENTITIES.register("protogen", () -> BlockEntityType.Builder.of(ProtoGenBE::new, PROTOGEN.get()).build(null));
+    public static final RegistryObject<BlockEntityType<ProtoGenBE>> PROTOGEN_BE = BLOCK_ENTITIES.register("protogen_block_entity",
+            () -> BlockEntityType.Builder.of(ProtoGenBE::new, PROTOGEN.get()).build(null));
     public static final RegistryObject<MenuType<ProtoGenContainer>> PROTOGEN_CONTAINER = CONTAINERS.register("",
             () -> IForgeMenuType.create((windowId, inv, data) -> new ProtoGenContainer(windowId, data.readBlockPos(), inv, inv.player)));
 
     public static final RegistryObject<FoundryBlock> FOUNDRY = BLOCKS.register("foundry", FoundryBlock::new);
     public static final RegistryObject<Item> FOUNDRY_ITEM = fromBlock(FOUNDRY);
-    public static final RegistryObject<BlockEntityType<FoundryBE>> FOUNDRY_BE = BLOCK_ENTITIES.register("foundry", () -> BlockEntityType.Builder.of(FoundryBE::new, FOUNDRY.get()).build(null));
-    //public static final RegistryObject<MenuType<ProtoGenContainer>> FOUNDRY_CONTAINER = CONTAINERS.register("",
-    //        () -> IForgeMenuType.create((windowId, inv, data) -> new ProtoGenContainer(windowId, data.readBlockPos(), inv, inv.player)));
+    public static final RegistryObject<BlockEntityType<FoundryBE>> FOUNDRY_BE = BLOCK_ENTITIES.register("foundry_block_entity",
+            () -> BlockEntityType.Builder.of(FoundryBE::new, FOUNDRY.get()).build(null));
+    public static final RegistryObject<MenuType<ProtoGenContainer>> FOUNDRY_CONTAINER = CONTAINERS.register("foundry_container",
+            () -> IForgeMenuType.create((windowId, inv, data) -> new ProtoGenContainer(windowId, data.readBlockPos(), inv, inv.player)));
+    public static final RegistryObject<MenuType<FoundryMenu>> FOUNDRY_MENU =
+            registerMenuType(FoundryMenu::new, "foundry_menu");
 
 
     public static final RegistryObject<Item> PROTODERMIS_RAW = ITEMS.register("raw_protodermis", () -> new Item(ITEM_PROPERTIES));
@@ -117,7 +132,7 @@ public class Registration {
     public static final RegistryObject<Item> LIGHTSTONE = ITEMS.register("lightstone", () -> new Item(ITEM_PROPERTIES));
 
     public static final RegistryObject<Item> FIRE_STAFF = ITEMS.register("fire_staff", () -> new FireStaffItem(new Item.Properties()
-            .tab(ITEM_GROUP)
+            .tab(KANOHICRAFT_TAB)
             .stacksTo(1)
             .durability(32)));
 

@@ -1,3 +1,4 @@
+/*
 package com.Mattah12.kanohicraft.blocks;
 
 import com.Mattah12.kanohicraft.setup.Registration;
@@ -27,7 +28,7 @@ public class FoundryContainer extends AbstractContainerMenu {
     private IItemHandler playerInventory;
 
     public FoundryContainer(int windowId, BlockPos pos, Inventory playerInventory, Player player) {
-        super(Registration.PROTOGEN_CONTAINER.get(), windowId);
+        super(Registration.FOUNDRY_CONTAINER.get(), windowId);
         blockEntity = player.getCommandSenderWorld().getBlockEntity(pos);
         this.playerEntity = player;
         this.playerInventory = new InvWrapper(playerInventory);
@@ -153,4 +154,4 @@ public class FoundryContainer extends AbstractContainerMenu {
         topRow += 58;
         addSlotRange(playerInventory, 0, leftCol, topRow, 9, 18);
     }
-}
+}*/
