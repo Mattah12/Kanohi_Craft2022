@@ -14,10 +14,8 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
@@ -41,15 +39,13 @@ public class FoundryBE extends BlockEntity implements MenuProvider {
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
     public FoundryBE(BlockPos pos, BlockState state) {
+
         super(Registration.FOUNDRY_BE.get(), pos, state);
     }
 
-    /*public FoundryBE(BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState) {
-        super(pType, pWorldPosition, pBlockState);
-    }*/
-
-    @Override
+      @Override
     public Component getDisplayName() {
+
         return new TextComponent("Foundry");
     }
 

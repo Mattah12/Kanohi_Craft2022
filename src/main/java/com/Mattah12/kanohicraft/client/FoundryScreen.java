@@ -1,13 +1,10 @@
 package com.Mattah12.kanohicraft.client;
 
 import com.Mattah12.kanohicraft.KanohiCraft;
-import com.Mattah12.kanohicraft.blocks.ProtoGenContainer;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;

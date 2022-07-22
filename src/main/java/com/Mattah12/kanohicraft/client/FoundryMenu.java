@@ -7,14 +7,12 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-import org.jetbrains.annotations.Nullable;
 
 public class FoundryMenu extends AbstractContainerMenu{
     private final FoundryBE blockEntity;
@@ -32,14 +30,14 @@ public class FoundryMenu extends AbstractContainerMenu{
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler, 0, 9, 62));
+            this.addSlot(new SlotItemHandler(handler, 0, 9, 34));
             this.addSlot(new SlotItemHandler(handler, 1, 80, 8));
             this.addSlot(new SlotItemHandler(handler, 2, 107, 22));
             this.addSlot(new SlotItemHandler(handler, 3, 107, 48));
             this.addSlot(new SlotItemHandler(handler, 4, 80, 60));
             this.addSlot(new SlotItemHandler(handler, 5, 51, 48));
             this.addSlot(new SlotItemHandler(handler, 6, 51, 22));
-            this.addSlot(new KanResultSlot(handler, 7, 153, 62));
+            this.addSlot(new KanResultSlot(handler, 7, 153, 32));
         });
 
     }
@@ -102,14 +100,14 @@ public class FoundryMenu extends AbstractContainerMenu{
     private void addPlayerInventory(Inventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
             for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 86 + i * 18));
+                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 84 + i * 18));
             }
         }
     }
 
     private void addPlayerHotbar(Inventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 144));
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
     }
 }
