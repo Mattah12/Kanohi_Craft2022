@@ -44,7 +44,8 @@ public class KanItemTags extends ItemTagsProvider {
                 .add(Registration.MASK_KAUKAU.get())
                 .add(Registration.MASK_PAKARI.get());
         tag(Registration.FIRE_STAFF_ITEMS)
-                .add(Registration.FIRE_STAFF.get());
+                .add(Registration.FIRE_STAFF.get())
+                .add(Registration.FIRE_STAFF_NOBLE.get());
 
     }
 

@@ -1,0 +1,20 @@
+{
+  "type": "kanohicraft:disk_making",
+  "ingredients": [
+  {
+    "item": "kanohicraft:protodermis_ingot"
+  },
+    {
+      "item": "kanohicraft:protodermis_ingot"
+    },
+    {
+      "item": "kanohicraft:protodermis_ingot"
+    },
+    {
+      "item": "kanohicraft:protodermis_ingot"
+    }
+  ],
+  "output": {
+    "item": "kanohicraft:protodermis_block"
+  }
+}

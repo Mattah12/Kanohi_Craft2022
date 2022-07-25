@@ -153,5 +153,16 @@ public class KanRecipes extends RecipeProvider {
                 .unlockedBy("protodermis", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.PROTODERMIS_INGOT.get()))
                 .save(consumer, "fire_staff_recipe");
 
+        ShapedRecipeBuilder.shaped(Registration.FIRE_STAFF_NOBLE.get())
+                .pattern("  x")
+                .pattern(" y ")
+                .pattern("z  ")
+                .define('x', Blocks.OBSIDIAN)
+                .define('y', Registration.FIRE_STAFF.get())
+                .define('z', Items.GOLD_INGOT)
+                .group("kanohicraft")
+                .unlockedBy("protodermis", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.PROTODERMIS_INGOT.get()))
+                .save(consumer, "noble_fire_staff_recipe");
+
     }
 }

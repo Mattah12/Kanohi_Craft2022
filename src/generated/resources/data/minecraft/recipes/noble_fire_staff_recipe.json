@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "kanohicraft",
+  "pattern": [
+    "  x",
+    " y ",
+    "z  "
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:obsidian"
+    },
+    "y": {
+      "item": "kanohicraft:fire_staff"
+    },
+    "z": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "kanohicraft:noble_fire_staff"
+  }
+}

@@ -1,18 +1,22 @@
 package com.Mattah12.kanohicraft.blocks;
 
 import com.Mattah12.kanohicraft.client.FoundryMenu;
+import com.Mattah12.kanohicraft.datagen.KanItemTags;
+import com.Mattah12.kanohicraft.recipes.FoundryRecipe;
 import com.Mattah12.kanohicraft.setup.Registration;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -26,6 +30,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
+import java.util.Optional;
 import java.util.Random;
 
 public class FoundryBE extends BlockEntity implements MenuProvider {
@@ -38,12 +43,35 @@ public class FoundryBE extends BlockEntity implements MenuProvider {
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
+    protected final ContainerData data;
+    private int progress = 0;
+    private int maxProgress = 100;
+
     public FoundryBE(BlockPos pos, BlockState state) {
 
         super(Registration.FOUNDRY_BE.get(), pos, state);
+
+        this.data = new ContainerData() {
+           public int get(int index) {
+                switch (index){
+                    case 0: return FoundryBE.this.progress;
+                    case 1: return FoundryBE.this.maxProgress;
+                    default:return 0;
+                }
+            }
+            public void set(int index, int value) {
+               switch(index) {
+                   case 0: FoundryBE.this.progress = value; break;
+                   case 1: FoundryBE.this.maxProgress = value; break;
+               }
+            }
+            public int getCount() {
+               return 2;
+           }
+        };
     }
 
-      @Override
+    @Override
     public Component getDisplayName() {
 
         return new TextComponent("Foundry");
@@ -52,7 +80,7 @@ public class FoundryBE extends BlockEntity implements MenuProvider {
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
-        return new FoundryMenu(pContainerId, pInventory, this);
+        return new FoundryMenu(pContainerId, pInventory, this, this.data);
     }
 
     @Nonnull
@@ -80,6 +108,7 @@ public class FoundryBE extends BlockEntity implements MenuProvider {
     @Override
     protected void saveAdditional(@NotNull CompoundTag tag) {
         tag.put("inventory", itemHandler.serializeNBT());
+        tag.putInt("disk_making.progress", progress);
         super.saveAdditional(tag);
     }
 
@@ -87,6 +116,7 @@ public class FoundryBE extends BlockEntity implements MenuProvider {
     public void load(CompoundTag nbt) {
         super.load(nbt);
         itemHandler.deserializeNBT(nbt.getCompound("inventory"));
+        progress = nbt.getInt("disk_making.progress");
     }
 
     public void drops() {
@@ -99,31 +129,71 @@ public class FoundryBE extends BlockEntity implements MenuProvider {
     }
 
     public static void tick(Level pLevel, BlockPos pPos, BlockState pState, FoundryBE pBlockEntity) {
-        if(hasRecipe(pBlockEntity) && hasNotReachedStackLimit(pBlockEntity)) {
-            craftItem(pBlockEntity);
+        if(hasRecipe(pBlockEntity)) {
+            pBlockEntity.progress++;
+            setChanged(pLevel, pPos, pState);
+            if(pBlockEntity.progress > pBlockEntity.maxProgress) {
+                craftItem(pBlockEntity);
+            }
+        } else {
+            pBlockEntity.resetProgress();
+            setChanged(pLevel, pPos, pState);
         }
     }
 
-    private static void craftItem(FoundryBE entity) {
-        entity.itemHandler.extractItem(1, 1, false);
-        entity.itemHandler.extractItem(2, 1, false);
-        entity.itemHandler.getStackInSlot(0).hurt(1, new Random(), null);
-
-        entity.itemHandler.setStackInSlot(7, new ItemStack(Registration.FOUNDRY.get(),
-                entity.itemHandler.getStackInSlot(7).getCount() + 1));
-    }
-
     private static boolean hasRecipe(FoundryBE entity) {
-        boolean hasItemInStaffSlot = entity.itemHandler.getStackInSlot(0).getItem() == Registration.FIRE_STAFF.get();
-        boolean hasItemInFirstSlot = entity.itemHandler.getStackInSlot(1).getItem() == Registration.PROTODERMIS_INGOT.get();
-        boolean hasItemInSecondSlot = entity.itemHandler.getStackInSlot(2).getItem() == Registration.LIGHTSTONE_TORCH_ITEM.get();
+        Level level = entity.level;
+        SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
+        for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
+            inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
+        }
 
-        return hasItemInStaffSlot && hasItemInFirstSlot && hasItemInSecondSlot;
+        Optional<FoundryRecipe> match = level.getRecipeManager()
+                .getRecipeFor(FoundryRecipe.Type.INSTANCE, inventory, level);
+
+        return match.isPresent() && canInsertAmountIntoOutputSlot(inventory)
+                && canInsertItemIntoOutputSlot(inventory, match.get().getResultItem())
+                && hasToolsInToolSlot(entity);
     }
 
-    private static boolean hasNotReachedStackLimit(FoundryBE entity) {
-        return entity.itemHandler.getStackInSlot(7).getCount() < entity.itemHandler.getStackInSlot(7).getMaxStackSize();
+    private static boolean hasToolsInToolSlot(FoundryBE entity) {
+        return entity.itemHandler.getStackInSlot(0).getItem() == Registration.FIRE_STAFF.get()
+                || entity.itemHandler.getStackInSlot(0).getItem() == Registration.FIRE_STAFF_NOBLE.get();
     }
 
+    private static void craftItem(FoundryBE entity) {
+        Level level = entity.level;
+        SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
+        for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
+            inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
+        }
 
+        Optional<FoundryRecipe> match = level.getRecipeManager()
+                .getRecipeFor(FoundryRecipe.Type.INSTANCE, inventory, level);
+
+        if(match.isPresent()) {
+            entity.itemHandler.extractItem(2,1, false);
+            entity.itemHandler.extractItem(3,1, false);
+            entity.itemHandler.extractItem(5,1, false);
+            entity.itemHandler.extractItem(6,1, false);
+            entity.itemHandler.getStackInSlot(0).hurt(1, new Random(), null);
+
+            entity.itemHandler.setStackInSlot(7, new ItemStack(match.get().getResultItem().getItem(),
+                    entity.itemHandler.getStackInSlot(7).getCount() + 1));
+
+            entity.resetProgress();
+        }
+    }
+
+    private void resetProgress() {
+        this.progress = 0;
+    }
+
+    private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack output) {
+        return inventory.getItem(7).getItem() == output.getItem() || inventory.getItem(7).isEmpty();
+    }
+
+    private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
+        return inventory.getItem(7).getMaxStackSize() > inventory.getItem(7).getCount();
+    }
 }

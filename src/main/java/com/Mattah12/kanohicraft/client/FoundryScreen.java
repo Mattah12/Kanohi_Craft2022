@@ -27,6 +27,10 @@ public class FoundryScreen extends AbstractContainerScreen<FoundryMenu> {
 
         this.blit(pPoseStack, x, y, 0, 0, imageWidth, imageHeight);
 
+        if (menu.isCrafting()) {
+            blit(pPoseStack, x + 150, y + 31, 176, 31, 16, menu.getScaledProgress());
+
+        }
     }
 
     @Override

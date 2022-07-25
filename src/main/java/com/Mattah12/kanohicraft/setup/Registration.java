@@ -4,6 +4,7 @@ import com.Mattah12.kanohicraft.KanohiCraft;
 import com.Mattah12.kanohicraft.blocks.*;
 import com.Mattah12.kanohicraft.client.FoundryMenu;
 import com.Mattah12.kanohicraft.items.FireStaffItem;
+import com.Mattah12.kanohicraft.recipes.FoundryRecipe;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -13,6 +14,7 @@ import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.StandingAndWallBlockItem;
+import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.TorchBlock;
@@ -23,6 +25,7 @@ import net.minecraft.world.level.material.Material;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.network.IContainerFactory;
 import net.minecraftforge.registries.DeferredRegister;
@@ -38,6 +41,7 @@ public class Registration {
     private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, KanohiCraft.MODID);
     private static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(ForgeRegistries.CONTAINERS, KanohiCraft.MODID);
     private static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, KanohiCraft.MODID);
+    private static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, KanohiCraft.MODID);
 
     private static <T extends AbstractContainerMenu>RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory, String name){
 
@@ -51,6 +55,7 @@ public class Registration {
         BLOCK_ENTITIES.register(bus);
         MENUS.register(bus);
         CONTAINERS.register(bus);
+        SERIALIZERS.register(bus);
 
     }
 
@@ -135,6 +140,10 @@ public class Registration {
             .tab(KANOHICRAFT_TAB)
             .stacksTo(1)
             .durability(32)));
+    public static final RegistryObject<Item> FIRE_STAFF_NOBLE = ITEMS.register("noble_fire_staff", () -> new FireStaffItem(new Item.Properties()
+            .tab(KANOHICRAFT_TAB)
+            .stacksTo(1)
+            .durability(256)));
 
     public static final RegistryObject<Item> MASK_HAU = ITEMS.register("mask_hau", () -> new Item(ITEM_PROPERTIES));
     public static final RegistryObject<Item> MASK_MIRU = ITEMS.register("mask_miru", () -> new Item(ITEM_PROPERTIES));
@@ -151,6 +160,11 @@ public class Registration {
     public static final Tags.IOptionalNamedTag<Item> LIGHTSTONE_ITEMS = ItemTags.createOptional(new ResourceLocation(KanohiCraft.MODID,"lightstone_item"));
     public static final Tags.IOptionalNamedTag<Block> LIGHTSTONE_BLOCKS = BlockTags.createOptional(new ResourceLocation(KanohiCraft.MODID,"lightstone_block"));
     public static final Tags.IOptionalNamedTag<Item> FIRE_STAFF_ITEMS = ItemTags.createOptional(new ResourceLocation(KanohiCraft.MODID,"fire_staff_items"));
+
+    public static final RegistryObject<RecipeSerializer<FoundryRecipe>> FOUNDRY_SERIALIZER =
+            SERIALIZERS.register("mask_making", () -> FoundryRecipe.Serializer.INSTANCE);
+
+
 
 
     // Conveniance function: Take a RegistryObject<Block> and make a corresponding RegistryObject<Item> from it

@@ -48,6 +48,7 @@ public class KanLanguageProvider extends LanguageProvider {
 
         add(Registration.FOUNDRY.get(),"Foundry");
         add(Registration.FIRE_STAFF.get(), "Fire Staff");
+        add(Registration.FIRE_STAFF_NOBLE.get(), "Noble Fire Staff");
 
 
         add(Registration.MASK_HAU.get(), "Kanohi Hau: Mask of Shielding");
