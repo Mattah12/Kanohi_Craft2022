@@ -176,7 +176,9 @@ public class FoundryBE extends BlockEntity implements MenuProvider {
             entity.itemHandler.extractItem(3,1, false);
             entity.itemHandler.extractItem(5,1, false);
             entity.itemHandler.extractItem(6,1, false);
-            entity.itemHandler.getStackInSlot(0).hurt(1, new Random(), null);
+                if(entity.itemHandler.getStackInSlot(0).hurt(1, new Random(), null)) {
+                    entity.itemHandler.extractItem(0,1, false);
+            }
 
             entity.itemHandler.setStackInSlot(7, new ItemStack(match.get().getResultItem().getItem(),
                     entity.itemHandler.getStackInSlot(7).getCount() + 1));
