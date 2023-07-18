@@ -20,7 +20,7 @@ apply plugin: 'org.parchmentmc.librarian.forgegradle'
 
 
 
-version = '1.0'
+version = '0.1'
 group = 'com.mattah12.kanohicraft' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'kanohicraft'
 
