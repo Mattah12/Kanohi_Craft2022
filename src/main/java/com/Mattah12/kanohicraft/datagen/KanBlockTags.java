@@ -36,8 +36,7 @@ public class KanBlockTags extends BlockTagsProvider {
                 .add(Registration.LIGHTSTONE_REFINED_WOOD_LAMP.get())
                 .add(Registration.LIGHTSTONE_REFINED_STONE_LAMP.get())
                 .add(Registration.LIGHTSTONE_BLOCK_DEEPSLATE.get())
-                .add(Registration.LIGHTSTONE_BLOCK_OVERWORLD.get());
-        tag(BlockTags.NEEDS_IRON_TOOL)
+                .add(Registration.LIGHTSTONE_BLOCK_OVERWORLD.get())
                 .add(Registration.PROTOGEN.get())
                 .add(Registration.PROTODERMIS_ORE_OVERWORLD.get())
                 .add(Registration.PROTODERMIS_ORE_NETHER.get())
